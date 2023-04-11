@@ -34,7 +34,7 @@ public class UserRepository {
                 String lname = resultSet.getString(3);
                 String email = resultSet.getString(4);
                 String pw = resultSet.getString(5);
-                User user = new User(id, fname, lname, email, pw);
+                User user = new User(fname, lname, email, pw);
                 userList.add(user);
                 System.out.println(user);
             }
@@ -56,14 +56,3 @@ public class UserRepository {
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

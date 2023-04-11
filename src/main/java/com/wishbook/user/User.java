@@ -10,8 +10,7 @@ public class User {
     //empty constructor, because ?
     public User(){}
 
-    public User(int id, String fname, String lname, String email, String pw){
-        this.id = id;
+    public User(String fname, String lname, String email, String pw){
         this.fname = fname;
         this.lname = lname;
         this.email = email;

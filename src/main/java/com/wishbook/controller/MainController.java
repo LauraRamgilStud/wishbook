@@ -1,5 +1,7 @@
 package com.wishbook.controller;
 
+import com.wishbook.repository.UserRepository;
+import com.wishbook.user.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
