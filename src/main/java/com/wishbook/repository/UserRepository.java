@@ -74,7 +74,29 @@ public class UserRepository {
 
         return false;
     }
+    public boolean checkPassword(String passWord){
+        final String FIND_QUERY = "SELECT * FROM user WHERE password = ?";
+        try {
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
 
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_QUERY);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            String password = resultSet.getString(4);
+
+            if(password != null){
+                return true;
+            }
+
+        } catch (SQLException e){
+            System.out.println("Error - Password");
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
 
     public void addUser(User user){

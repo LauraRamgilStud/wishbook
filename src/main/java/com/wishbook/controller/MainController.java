@@ -37,7 +37,7 @@ public class MainController {
 
     @GetMapping("/profile/{wishlistID}")
     public String showProfilePage(@PathVariable("wishlistID") Integer wishlistID, Model model){
-        Li
+
 
         return "profile-page";
     }
