@@ -1,7 +1,7 @@
 package com.wishbook.controller;
 
 import com.wishbook.repository.UserRepository;
-import com.wishbook.user.User;
+import com.wishbook.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class MainController {
                                @RequestParam("") String email,
                                @RequestParam("") String password, Model model){
         //Check if user with mail already exists
-        if(!checkEmail(email)){
+        if(!userRepository.checkUserExists(email)){
             User newUser = new User(fname, lname, email, password);
 
             //add user to DB

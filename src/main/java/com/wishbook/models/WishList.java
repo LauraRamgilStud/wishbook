@@ -6,12 +6,12 @@ public class WishList {
     private int user_id;
     private String list_name;
     private String occasion;
-    private String cover_pic;
+    private byte[] cover_pic;
 
     public WishList() {
     }
 
-    public WishList(int user_id, String list_name, String occasion, String cover_pic) {
+    public WishList(int user_id, String list_name, String occasion, byte[] cover_pic) {
         this.user_id = user_id;
         this.list_name = list_name;
         this.occasion = occasion;
@@ -50,11 +50,11 @@ public class WishList {
         this.occasion = occasion;
     }
 
-    public String getCover_pic() {
+    public byte[] getCover_pic() {
         return cover_pic;
     }
 
-    public void setCover_pic(String cover_pic) {
+    public void setCover_pic(byte[] cover_pic) {
         this.cover_pic = cover_pic;
     }
 

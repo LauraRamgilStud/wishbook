@@ -1,6 +1,6 @@
 package com.wishbook.repository;
 
-import com.wishbook.user.User;
+import com.wishbook.models.User;
 import com.wishbook.utility.ConnectionManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
