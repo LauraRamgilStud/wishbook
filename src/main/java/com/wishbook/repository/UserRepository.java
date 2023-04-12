@@ -11,22 +11,18 @@ import java.util.List;
 
 @Repository
 public class UserRepository {
-
     @Value("${spring.datasource.url}")
     private String DB_URL;
-
     @Value("${spring.datasource.username}")
     private String UID;
-
     @Value("${spring.datasource.password}")
     private String PWD;
-
     public List<User> getAll(){
         List<User> userList = new ArrayList<>();
         try {
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
             Statement statement = connection.createStatement();
-            final String SQL_QUERY = "SELECT * FROM user";
+            final String SQL_QUERY = "SELECT * FROM wishbook.user";
             ResultSet resultSet = statement.executeQuery(SQL_QUERY);
             while (resultSet.next()){
                 int id = resultSet.getInt(1);
@@ -46,8 +42,6 @@ public class UserRepository {
         }
         return userList;
     }
-
-    //
     public boolean checkIfUserExists(String eMail){
         final String FIND_QUERY = "SELECT * FROM wishbook.user WHERE email = ?";
         try {
@@ -60,9 +54,6 @@ public class UserRepository {
             //execute statement
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            /*resultSet.next();
-            String email = resultSet.getString(4);*/
-
             while(resultSet.next()){
                 String email = resultSet.getString(4);
                 if(email != null){
@@ -74,23 +65,24 @@ public class UserRepository {
             System.out.println("Could not find user");
             e.printStackTrace();
         }
-
         return false;
     }
-    public boolean checkPassword(String passWord){
-        final String FIND_QUERY = "SELECT * FROM user WHERE password = ?";
+    public boolean loginVerification(String passWord, String eMail){
+        final String FIND_QUERY = "SELECT * FROM wishbook.user WHERE password = ? AND email = ?";
         try {
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
 
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_QUERY);
-
+            preparedStatement.setString(1, passWord);
+            preparedStatement.setString(2, eMail);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            resultSet.next();
-            String password = resultSet.getString(4);
-
-            if(password != null){
-                return true;
+            while(resultSet.next()){
+                String email = resultSet.getString(4);
+                String password = resultSet.getString(5);
+                if(email != null && password != null){
+                    return true;
+                }
             }
 
         } catch (SQLException e){
@@ -100,8 +92,6 @@ public class UserRepository {
 
         return false;
     }
-
-
     public void addUser(User user){
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
@@ -121,6 +111,66 @@ public class UserRepository {
             e.printStackTrace();
         }
     }
+    public void updateUser(User user){
+        final String UPDATE_QUERY = "UPDATE wishbook.user SET fname = ?, lname = ?, email = ?, password = ? WHERE id = ?";
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
+
+            preparedStatement.setString(1, user.getFname());
+            preparedStatement.setString(2, user.getLname());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
+
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            System.out.println("Could not update user.");
+            e.printStackTrace();
+        }
+    }
+    public void deleteUserByID(int id) {
+        final String DELETE_QUERY = "DELETE FROM wishbook.user WHERE id=?";
+        try {
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Could not create user");
+            e.printStackTrace();
+        }
+    }
+    public User findUserByID(int userID){
+        //SQL QUERY
+        final String FIND_QUERY = "SELECT * FROM wishbook.user WHERE id = ?";
+        User user = new User();
+        user.setId(userID);
+        try {
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_QUERY);
+
+            preparedStatement.setInt(1, userID);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            String fname = resultSet.getString(2);
+            String lname = resultSet.getString(3);
+            String email = resultSet.getString(4);
+            String password = resultSet.getString(5);
+
+            user.setFname(fname);
+            user.setLname(lname);
+            user.setEmail(email);
+            user.setPassword(password);
 
 
+        }catch (SQLException e){
+            System.out.println("Could not find user");
+            e.printStackTrace();
+        }
+        return user;
+    }
 }

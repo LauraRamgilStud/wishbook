@@ -5,6 +5,24 @@
     <title>WishBook</title>
 </head>
 <body>
+<form action="/login" th:action="@{/login}" method="POST">
+<table>
+
+    <tr>
+        <td>Email:</td>
+        <td><input type="email" id="email" placeholder="Email" name="email" required></td>
+        <span th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td><input type="password" placeholder="Password" name="password" required></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Create account"></td>
+        <td><a href="/login">Already have an account?</a></td>
+    </tr>
+</table>
+</form>
 
 </body>
 </html>

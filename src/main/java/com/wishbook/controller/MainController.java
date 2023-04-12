@@ -20,32 +20,32 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private UserRepository userRepository;
-    private WishListRepository wishListRepository;
+    private final UserRepository userRepository;
+    private final WishListRepository wishListRepository;
+    private final WishRepository wishRepository;
 
-    public MainController(UserRepository userRepository){
+    public MainController(UserRepository userRepository, WishListRepository wishListRepository, WishRepository wishRepository){
         this.userRepository = userRepository;
+        this.wishListRepository = wishListRepository;
+        this.wishRepository = wishRepository;
     }
 
     @GetMapping("/")
-    public String home(Model model){
-        String message = "hello";
-        model.addAttribute("message", message);
-        return "register";
+    public String home(){
+        return "home";
     }
 
-   /* @GetMapping("/overview/{userID}")
-    public String showOverviewPage(@PathVariable("userID") Integer userID, Model model){
-        User user = userRepository.findUserByID(userID);
-        List<WishList> listOfWishlists = wishListRepository.getWishListsByUserID(userID);
-        model.addAttribute("user", user);
-        model.addAttribute("wishlists", listOfWishlists);
-        return "overview";
-    }*/
+    //POST MAPPING FOR USER LOGIN
+    @PostMapping("/login")
+    public String login(@RequestParam("email") String email,
+                        @RequestParam("password") String password, Model model){
+        //Check if user with mail already exists
+        if(!userRepository.loginVerification(password, email)){
+            model.addAttribute("errorMessage", "Email or password invalid");
+            return "home";
+        }
 
-    @GetMapping("/profile/{wishlistID}")
-    public String showProfilePage(@PathVariable("wishlistID") Integer wishlistID, Model model){
-        return "profile-page";
+        return "overview";
     }
 
 
@@ -68,7 +68,17 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/overview/{userID}")
+    public String showOverviewPage(@PathVariable("userID") Integer userID, Model model){
+        List<WishList> listOfWishlists = wishListRepository.getWishListsByUserID(userID);
+        model.addAttribute("wishlists", listOfWishlists);
+        return "overview";
+    }
 
+    @GetMapping("/profile/{wishlistID}")
+    public String showProfilePage(@PathVariable("wishlistID") Integer wishlistID, Model model){
+        return "profile-page";
+    }
 
     //POST MAPPING FOR UPDATING WISHLIST
     @PostMapping("/update-wishlist")
