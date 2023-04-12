@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <div th:insert="fragments/header-fragment.html"></div>
+    <div th:insert="fragments/footer-fragment.html"></div>
+    <form>
+        <table>
+            <h4>Personal</h4>
+            <tr>
+                <td>First name:</td>
+                <td><input type="text" placeholder="First name" name=""></td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td><input type="text" placeholder="Last name" name=""></td>
+            </tr>
+                <td>Email:</td>
+                <td><input type="mail" placeholder="Email" name=""></td>
+            <tr>
+            <tr>
+                <td><input type="submit" value="Edit profile information"></td>
+            </tr>
+        </table>
+    </form>
+    <form>
+        <table>
+            <h4>Safety</h4>
+            <tr>
+                <td><input type="submit" value="Change password" name=""></td>
+            </tr>
+        </table>
+        <table>
+            <h4>Administration</h4>
+            <tr>
+                <td><input type="submit" value="Delete profile" name=""></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

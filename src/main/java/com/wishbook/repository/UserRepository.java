@@ -49,22 +49,25 @@ public class UserRepository {
 
     //
     public boolean checkIfUserExists(String eMail){
-        final String FIND_QUERY = "SELECT * FROM user WHERE email = ?";
+        final String FIND_QUERY = "SELECT * FROM wishbook.user WHERE email = ?";
         try {
             //db connection
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
 
             //prepared statement
             PreparedStatement preparedStatement = connection.prepareStatement(FIND_QUERY);
-
+            preparedStatement.setString(1, eMail);
             //execute statement
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            resultSet.next();
-            String email = resultSet.getString(4);
+            /*resultSet.next();
+            String email = resultSet.getString(4);*/
 
-            if(email != null){
-                return true;
+            while(resultSet.next()){
+                String email = resultSet.getString(4);
+                if(email != null){
+                    return true;
+                }
             }
 
         } catch (SQLException e){
@@ -102,14 +105,14 @@ public class UserRepository {
     public void addUser(User user){
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
-            final String CREATE_QUERY = "INSERT INTO user(fname, lname, email, password) VALUES  (?, ?, ?, ?)";
+            final String CREATE_QUERY = "INSERT INTO wishbook.user(fname, lname, email, password) VALUES  (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_QUERY);
 
             //set attributes i prepared statement
             preparedStatement.setString(1, user.getFname());
             preparedStatement.setString(2, user.getLname());
-            preparedStatement.setString(1, user.getEmail());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getPassword());
 
             //execute statement
             preparedStatement.executeUpdate();

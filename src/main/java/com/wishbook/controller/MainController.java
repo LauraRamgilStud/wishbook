@@ -5,8 +5,10 @@ import com.wishbook.models.WishList;
 import com.wishbook.repository.UserRepository;
 import com.wishbook.models.User;
 import com.wishbook.repository.WishListRepository;
+import com.wishbook.repository.WishRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,24 +23,28 @@ public class MainController {
     private UserRepository userRepository;
     private WishListRepository wishListRepository;
 
-    @GetMapping("/")
-    public String home(){
-        return "home";
+    public MainController(UserRepository userRepository){
+        this.userRepository = userRepository;
     }
 
-    @GetMapping("/overview/{userID}")
+    @GetMapping("/")
+    public String home(Model model){
+        String message = "hello";
+        model.addAttribute("message", message);
+        return "register";
+    }
+
+   /* @GetMapping("/overview/{userID}")
     public String showOverviewPage(@PathVariable("userID") Integer userID, Model model){
         User user = userRepository.findUserByID(userID);
         List<WishList> listOfWishlists = wishListRepository.getWishListsByUserID(userID);
         model.addAttribute("user", user);
         model.addAttribute("wishlists", listOfWishlists);
         return "overview";
-    }
+    }*/
 
     @GetMapping("/profile/{wishlistID}")
     public String showProfilePage(@PathVariable("wishlistID") Integer wishlistID, Model model){
-
-
         return "profile-page";
     }
 
@@ -51,14 +57,14 @@ public class MainController {
                                @RequestParam("password") String password, Model model){
         //Check if user with mail already exists
         if(!userRepository.checkIfUserExists(email)){
-            User newUser = new User(fname, lname, email, password);
-
-            //add user to DB
-            userRepository.addUser(newUser);
+            User user = new User(fname, lname, email, password);
+            userRepository.addUser(user);
         }else{
-            String errorMessage = "User is already registered!";
-            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("errorMessage", "Email already in use");
+            return "register";
         }
+
+
         return "redirect:/";
     }
 
