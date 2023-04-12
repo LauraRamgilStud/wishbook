@@ -24,7 +24,7 @@ public class MainController {
                                @RequestParam("") String email,
                                @RequestParam("") String password, Model model){
         //Check if user with mail already exists
-        if(!userRepository.checkUserExists(email)){
+        if(!userRepository.checkIfUserExists(email)){
             User newUser = new User(fname, lname, email, password);
 
             //add user to DB

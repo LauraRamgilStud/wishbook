@@ -47,12 +47,55 @@ public class UserRepository {
         return userList;
     }
 
-    public boolean checkUserExists(ArrayList<User> list, User user){
-        for(User u : list){
-            if(u.equals(user)){
+    //
+    public boolean checkIfUserExists(String eMail){
+        final String FIND_QUERY = "SELECT * FROM user WHERE email = ?";
+        try {
+            //db connection
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+
+            //prepared statement
+            PreparedStatement preparedStatement = connection.prepareStatement(FIND_QUERY);
+
+            //execute statement
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            String email = resultSet.getString(4);
+
+            if(email != null){
                 return true;
             }
+
+        } catch (SQLException e){
+            System.out.println("Could not find user");
+            e.printStackTrace();
         }
+
         return false;
     }
+
+
+
+    public void addUser(User user){
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            final String CREATE_QUERY = "INSERT INTO user(fname, lname, email, password) VALUES  (?, ?, ?, ?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(CREATE_QUERY);
+
+            //set attributes i prepared statement
+            preparedStatement.setString(1, user.getFname());
+            preparedStatement.setString(2, user.getLname());
+            preparedStatement.setString(1, user.getEmail());
+            preparedStatement.setString(2, user.getPassword());
+
+            //execute statement
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Could not create user");
+            e.printStackTrace();
+        }
+    }
+
+
 }
