@@ -1,17 +1,19 @@
 package com.wishbook.models;
 
+import java.sql.Blob;
+
 public class WishList {
 
     private int id;
     private int user_id;
     private String list_name;
     private String occasion;
-    private byte[] cover_pic;
+    private Blob cover_pic;
 
     public WishList() {
     }
 
-    public WishList(int user_id, String list_name, String occasion, byte[] cover_pic) {
+    public WishList(int user_id, String list_name, String occasion, Blob cover_pic) {
         this.user_id = user_id;
         this.list_name = list_name;
         this.occasion = occasion;
@@ -50,11 +52,11 @@ public class WishList {
         this.occasion = occasion;
     }
 
-    public byte[] getCover_pic() {
+    public Blob getCover_pic() {
         return cover_pic;
     }
 
-    public void setCover_pic(byte[] cover_pic) {
+    public void setCover_pic(Blob cover_pic) {
         this.cover_pic = cover_pic;
     }
 

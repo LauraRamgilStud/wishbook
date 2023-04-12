@@ -16,8 +16,7 @@ public class Wish {
     public Wish() {
     }
 
-    public Wish(int wishlist_id, String wish_name, String description, Double price, int quantity, Blob wish_pic, String url) {
-        this.wishlist_id = wishlist_id;
+    public Wish(String wish_name, String description, Double price, int quantity, Blob wish_pic, String url) {
         this.wish_name = wish_name;
         this.description = description;
         this.price = price;

@@ -34,7 +34,7 @@ public class WishListRepository {
                 int id = resultSet.getInt(1);
                 String listName = resultSet.getString(3);
                 String occasion = resultSet.getString(4);
-                byte[] coverPic = resultSet.getBytes(5);
+                Blob coverPic = resultSet.getBlob(5);
                 WishList wishList = new WishList(userID, listName, occasion, coverPic);
                 wishList.setId(id);
                 list.add(wishList);
@@ -47,4 +47,74 @@ public class WishListRepository {
         return list;
     }
 
+    public void addWishList(WishList wishList){
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            final String CREATE_QUERY = "INSERT INTO Wishlist(user_id, list_name, occasion, cover_pic) " +
+                                        "VALUES (?, ?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(CREATE_QUERY);
+
+            preparedStatement.setInt(1, wishList.getUser_id());
+            preparedStatement.setString(2, wishList.getList_name());
+            preparedStatement.setString(3, wishList.getOccasion());
+            preparedStatement.setBlob(4, wishList.getCover_pic());
+
+            //Execute statement
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+            System.out.println("Could not create wishlist");
+            e.printStackTrace();
+        }
+    }
+
+    public void updateWishList(WishList wishList){
+        // SQL QUERY
+        final String UPDATE_QUERY = "UPDATE Wishlist " +
+                                    "SET list_name = ?, occasion = ?, cover_pic = ?" +
+                                    "WHERE id = ?";
+
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
+
+            //Set parameters
+            int id = wishList.getId();
+            String list_name = wishList.getList_name();
+            String occasion = wishList.getOccasion();
+            Blob cover_pic = wishList.getCover_pic();
+            preparedStatement.setString(1, list_name);
+            preparedStatement.setString(2, occasion);
+            preparedStatement.setBlob(3, cover_pic);
+            preparedStatement.setInt(4, id);
+
+            //execute statement
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            System.out.println("Could not update wishlist");
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteWishListByID(int id){
+        //SQL QUERY
+        final String DELETE_QUERY = "DELETE FROM wishlist WHERE id = ?";
+
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
+
+            //set parameter
+            preparedStatement.setInt(1, id);
+
+            //execute statement
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            System.out.println("Could not delete product");
+            e.printStackTrace();
+        }
+    }
 }
