@@ -6,11 +6,10 @@ import com.wishbook.repository.UserRepository;
 import com.wishbook.models.User;
 import com.wishbook.repository.WishListRepository;
 import com.wishbook.repository.WishRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,14 +37,19 @@ public class MainController {
     //POST MAPPING FOR USER LOGIN
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,
-                        @RequestParam("password") String password, Model model){
+                        @RequestParam("password") String password,
+                        Model model,
+                        HttpSession session){
         //Check if user with mail already exists
         if(!userRepository.loginVerification(password, email)){
             model.addAttribute("errorMessage", "Email or password invalid");
             return "home";
         }
 
-        return "overview";
+        User user = userRepository.getUserByEmailAndPassword(email, password);
+        session.setAttribute("user", user);
+
+        return "redirect:/overview";
     }
 
 
@@ -68,16 +72,33 @@ public class MainController {
         return "redirect:/";
     }
 
-    @GetMapping("/overview/{userID}")
-    public String showOverviewPage(@PathVariable("userID") Integer userID, Model model){
-        List<WishList> listOfWishlists = wishListRepository.getWishListsByUserID(userID);
+    @GetMapping("/overview")
+    public String showOverviewPage(HttpSession session, Model model){
+        User user = (User) session.getAttribute("user");
+        List<WishList> listOfWishlists = wishListRepository.getWishListsByUserID(user.getId());
         model.addAttribute("wishlists", listOfWishlists);
         return "overview";
     }
 
-    @GetMapping("/profile/{wishlistID}")
-    public String showProfilePage(@PathVariable("wishlistID") Integer wishlistID, Model model){
-        return "profile-page";
+    @GetMapping("/profile")
+    public String showProfilePage(HttpSession session, Model model){
+        User user = (User) session.getAttribute("user");
+        return "profile";
+    }
+
+    //POST FOR UPDATING PROFILE
+    @PostMapping("/update-profile")
+    public String updateProfile(@RequestParam("fname") String fname,
+                                @RequestParam("lname") String lname,
+                                @RequestParam("email") String email,
+                                HttpSession session){
+        User user = (User) session.getAttribute("user");
+        user.setFname(fname);
+        user.setLname(lname);
+        user.setEmail(email);
+        userRepository.updateUser(user);
+
+        return"redirect:/profile";
     }
 
     //POST MAPPING FOR UPDATING WISHLIST
@@ -95,14 +116,20 @@ public class MainController {
 
     //POST MAPPING FOR CREATING WISHLIST
     @PostMapping("/create-wishlist")
-    public String createWishlist(@RequestParam("user-id") int userID,
+    public String createWishlist(HttpSession session,
                                  @RequestParam("wishlist-name") String wishListName,
                                  @RequestParam("occasion") String occasion,
                                  @RequestParam("cover-pic")Blob coverPic){
-
-        WishList wishList = new WishList(userID, wishListName, occasion, coverPic);
+        User user = (User) session.getAttribute("user");
+        WishList wishList = new WishList(user.getId(), wishListName, occasion, coverPic);
         wishListRepository.addWishList(wishList);
 
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
         return "redirect:/";
     }
 

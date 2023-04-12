@@ -24,7 +24,7 @@ public class WishListRepository {
     public List<WishList> getWishListsByUserID(int userID){
         List<WishList> list = new ArrayList<>();
         try{
-            final String QUERY = "SELECT * FROM Wishlist WHERE user_id = ?";
+            final String QUERY = "SELECT * FROM wishbook.wishlist WHERE user_id = ?";
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
             preparedStatement.setInt(1, userID);

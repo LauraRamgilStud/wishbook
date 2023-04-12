@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
@@ -7,19 +7,19 @@
 <body>
     <div th:insert="fragments/header-fragment.html"></div>
     <div th:insert="fragments/footer-fragment.html"></div>
-    <form>
+    <form th:action="@{/update-profile}" method="post">
         <table>
             <h4>Personal</h4>
             <tr>
                 <td>First name:</td>
-                <td><input type="text" placeholder="First name" name=""></td>
+                <td><input type="text" placeholder="First name" name="fname" th:value="${session.user.getFname()}"></td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td><input type="text" placeholder="Last name" name=""></td>
+                <td><input type="text" placeholder="Last name" name="lname" th:value="${session.user.getLname()}"></td>
             </tr>
                 <td>Email:</td>
-                <td><input type="mail" placeholder="Email" name=""></td>
+                <td><input type="mail" placeholder="Email" name="email" th:value="${session.user.getEmail()}"></td>
             <tr>
             <tr>
                 <td><input type="submit" value="Edit profile information"></td>
@@ -40,5 +40,6 @@
             </tr>
         </table>
     </form>
+    <a th:href="@{/logout}"><button>Logout</button></a>
 </body>
 </html>

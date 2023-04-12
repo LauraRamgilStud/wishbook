@@ -5,6 +5,7 @@
     <title>Create account</title>
 </head>
 <body>
+<span th:text="${session.user}"></span>
 <form action="/register" th:action="@{/register}" method="POST">
   <table>
     <tr>
