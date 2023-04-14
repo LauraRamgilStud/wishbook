@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#background-pic {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    //filter: blur(65px); /* Add blur effect to the image */
+}
+
+/*#cover-pic {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    z-index: -1;
+}*/
+
+
+body {
+    background-image: url("../images/Background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:15%;
+}
+
+body::after {
+    content: "";
+    background-image: url("../images/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 70%;
+    position: absolute;
+    z-index: -1;
+}
+
+.profile_container {
+    height: 900px;
+    width: 800px;
+    border-radius: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    color: #ffffff;
+    margin-top: 750px;
+}
+
+.personal h4 {
+    position: absolute;
+    top: 10%;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.persContent {
+    font-size: 1.5rem;
+}
+
+.fn {
+    position: absolute;
+    top: 20%;
+}
+
+.ln {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+.em {
+    position: absolute;
+    top: 28%;
+}
+
+.epm {
+    position: absolute;
+    top: 33%;
+}
+
+.safety h4 {
+    position: absolute;
+    top: 45%;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.cp {
+    position: absolute;
+    top: 53%;
+    font-size: 1.5rem;
+}
+
+.administration h4 {
+    position: absolute;
+    top: 65%;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.dp {
+    position: absolute;
+    top: 73%;
+    font-size: 1.5rem;
+}
+
+.logout {
+    position: absolute;
+    top: 78%;
+    font-size: 1.5rem;
+}
+
+.personal {
+    display: flex;
+    background-color: rgba(213, 11, 11, 0);
+}
+
+.safety {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.administration {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.profile_container {
+    border-radius: 20px;
+    /* other styles */
+    background: rgba(39, 39, 39, 0.1);
+    backdrop-filter: blur(50px);
+    /* fallback for old browsers */
+    -webkit-backdrop-filter: blur(50px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
+}
+
