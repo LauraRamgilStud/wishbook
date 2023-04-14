@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/create-wish/" th:action="@{/create-wish/${session.wishlistIDFromWishlistView}}" method="POST" enctype="multipart/form-data">
+  <table>
+    <h4>Add new wish</h4>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" id="wish" placeholder="Name your wish" name="wish-name" required></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" id="description" placeholder="What is it?" name="description"></td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td><input type="number" id="price" placeholder="What is the price?" name="price"></td>
+    </tr>
+    <tr>
+      <td>Quantity:</td>
+      <td><input type="number" id="quantity" placeholder="How many?" name="quantity"></td>
+    </tr>
+    <tr>
+      <td>Picture:</td>
+      <td><input type="file" id="wish-pic" placeholder="Add a picture" name="wish-pic"></td>
+    </tr>
+    <tr>
+      <td>Link:</td>
+      <td><input type="text" id="url" placeholder="Add a link" name="url"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Create wish"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

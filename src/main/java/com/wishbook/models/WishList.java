@@ -8,16 +8,24 @@ public class WishList {
     private int user_id;
     private String list_name;
     private String occasion;
-    private Blob cover_pic;
+    private byte[] cover_pic;
+    private String picOut;
 
     public WishList() {
     }
 
-    public WishList(int user_id, String list_name, String occasion, Blob cover_pic) {
+    public WishList(int user_id, String list_name, String occasion, byte[] cover_pic) {
         this.user_id = user_id;
         this.list_name = list_name;
         this.occasion = occasion;
         this.cover_pic = cover_pic;
+    }
+
+    public WishList(int user_id, String list_name, String occasion, String picOut) {
+        this.user_id = user_id;
+        this.list_name = list_name;
+        this.occasion = occasion;
+        this.picOut = picOut;
     }
 
     public int getId() {
@@ -52,12 +60,19 @@ public class WishList {
         this.occasion = occasion;
     }
 
-    public Blob getCover_pic() {
+    public byte[] getCover_pic() {
         return cover_pic;
     }
 
-    public void setCover_pic(Blob cover_pic) {
+    public void setCover_pic(byte[] cover_pic) {
         this.cover_pic = cover_pic;
     }
 
+    public String getPicOut() {
+        return picOut;
+    }
+
+    public void setPicOut(String picOut) {
+        this.picOut = picOut;
+    }
 }

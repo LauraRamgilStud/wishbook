@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/create-wishlist" th:action="@{/create-wishlist}" method="POST" enctype="multipart/form-data">
+  <table>
+    <h4>Add new wishlist</h4>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" required></td>
+    </tr>
+    <tr>
+      <td>Occasion:</td>
+      <td><input type="text" placeholder="Whats the occasion?" name="occasion"></td>
+    </tr>
+    <tr>
+      <td>Cover picture:</td>
+      <td><input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Create wishlist"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/update-wishlist" th:action="@{/update-wishlist}" method="POST" enctype="multipart/form-data">
+  <table>
+    <h4>Update wishlist</h4>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" th:value="${session.wishlistFromWishlistView.getList_name()}"></td>
+    </tr>
+    <tr>
+      <td>Occasion:</td>
+      <td><input type="text" placeholder="Whats the occasion?" name="occasion" th:value="${session.wishlistFromWishlistView.getOccasion()}"></td>
+    </tr>
+    <tr>
+      <td>Cover picture:</td>
+      <td><input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic"></td>
+    </tr>
+    <tr>
+      <td><input type="submit" value="Update wishlist"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

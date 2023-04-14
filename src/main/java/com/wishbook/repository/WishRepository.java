@@ -21,7 +21,7 @@ public class WishRepository {
     @Value("${spring.datasource.password}")
     private String PWD;
 
-    public List<Wish> getWishByWishListID(int wishListID){
+    public List<Wish> getWishesByWishlistID(int wishListID){
         List<Wish> list = new ArrayList<>();
         try{
             final String QUERY = "SELECT * FROM wishbook.wish WHERE wishlist_id = ?";
@@ -36,9 +36,10 @@ public class WishRepository {
                 String description = resultSet.getString(4);
                 double price = resultSet.getDouble(5);
                 int quantity = resultSet.getInt(6);
-                Blob wishPic = resultSet.getBlob(7);
+                byte[] wishPic = resultSet.getBytes(7);
+                String base64Pic = Base64.getEncoder().encodeToString(wishPic);
                 String url = resultSet.getString(8);
-                Wish wish = new Wish(wishName, description, price, quantity, wishPic, url);
+                Wish wish = new Wish(wishListID, wishName, description, price, quantity, base64Pic, url);
                 wish.setId(id);
                 list.add(wish);
             }
@@ -63,7 +64,7 @@ public class WishRepository {
             preparedStatement.setString(3, wish.getDescription());
             preparedStatement.setDouble(4, wish.getPrice());
             preparedStatement.setInt(5, wish.getQuantity());
-            preparedStatement.setBlob(6, wish.getWish_pic());
+            preparedStatement.setBytes(6, wish.getWish_pic());
             preparedStatement.setString(7, wish.getUrl());
 
             //Execute statement
@@ -90,7 +91,7 @@ public class WishRepository {
             preparedStatement.setString(3, wish.getDescription());
             preparedStatement.setDouble(4, wish.getPrice());
             preparedStatement.setInt(5, wish.getQuantity());
-            preparedStatement.setBlob(6, wish.getWish_pic());
+            preparedStatement.setBytes(6, wish.getWish_pic());
             preparedStatement.setString(7, wish.getUrl());
 
             //execute statement

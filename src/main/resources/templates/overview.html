@@ -5,20 +5,12 @@
     <title>Overview</title>
 </head>
 <body>
-
-    <span th:text="${session.user.getId()}"></span>
-
-    <div th:insert="fragments/header-fragment.html"></div>
-    <div th:insert="fragments/footer-fragment.html"></div>
     <form>
         <table>
             <tr>
                 <td><a href="#All lists" class="nav-link">All lists</a></td>
                 <td><a href="#My lists" class="nav-link">My lists</a></td>
                 <td><a href="#Lists I follow" class="nav-link">Lists I follow</a></td>
-            </tr>
-            <tr th:each="wishlist : ${wishlists}">
-                <td th:text="${wishlist.getList_name()}"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="New wish"></td>

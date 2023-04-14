@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @Repository
@@ -34,8 +35,9 @@ public class WishListRepository {
                 int id = resultSet.getInt(1);
                 String listName = resultSet.getString(3);
                 String occasion = resultSet.getString(4);
-                Blob coverPic = resultSet.getBlob(5);
-                WishList wishList = new WishList(userID, listName, occasion, coverPic);
+                byte[] coverPic = resultSet.getBytes(5);
+                String base64CoverPic = Base64.getEncoder().encodeToString(coverPic);
+                WishList wishList = new WishList(userID, listName, occasion, base64CoverPic);
                 wishList.setId(id);
                 list.add(wishList);
             }
@@ -47,10 +49,39 @@ public class WishListRepository {
         return list;
     }
 
+    public WishList getWishlistByIDAndUserID(int listID, int userId){
+        WishList wishList = new WishList();
+        try{
+            final String QUERY = "SELECT * FROM wishbook.wishlist WHERE id = ? AND user_id = ?";
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
+            preparedStatement.setInt(1, listID);
+            preparedStatement.setInt(2, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            int userID = resultSet.getInt(2);
+            String listName = resultSet.getString(3);
+            String occasion = resultSet.getString(4);
+            byte[] coverPic = resultSet.getBytes(5);
+            String base64CoverPic = Base64.getEncoder().encodeToString(coverPic);
+            wishList.setId(listID);
+            wishList.setUser_id(userID);
+            wishList.setList_name(listName);
+            wishList.setOccasion(occasion);
+            wishList.setPicOut(base64CoverPic);
+
+        }catch (SQLException e){
+            System.out.println("Could not find wishlists");
+            e.printStackTrace();
+        }
+        return wishList;
+    }
+
     public void addWishList(WishList wishList){
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
-            final String CREATE_QUERY = "INSERT INTO Wishlist(user_id, list_name, occasion, cover_pic) " +
+            final String CREATE_QUERY = "INSERT INTO wishbook.Wishlist(user_id, list_name, occasion, cover_pic) " +
                                         "VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_QUERY);
@@ -58,7 +89,7 @@ public class WishListRepository {
             preparedStatement.setInt(1, wishList.getUser_id());
             preparedStatement.setString(2, wishList.getList_name());
             preparedStatement.setString(3, wishList.getOccasion());
-            preparedStatement.setBlob(4, wishList.getCover_pic());
+            preparedStatement.setBytes(4, wishList.getCover_pic());
 
             //Execute statement
             preparedStatement.executeUpdate();
@@ -71,7 +102,7 @@ public class WishListRepository {
 
     public void updateWishList(WishList wishList){
         // SQL QUERY
-        final String UPDATE_QUERY = "UPDATE Wishlist " +
+        final String UPDATE_QUERY = "UPDATE wishbook.Wishlist " +
                                     "SET list_name = ?, occasion = ?, cover_pic = ?" +
                                     "WHERE id = ?";
 
@@ -83,10 +114,10 @@ public class WishListRepository {
             int id = wishList.getId();
             String list_name = wishList.getList_name();
             String occasion = wishList.getOccasion();
-            Blob cover_pic = wishList.getCover_pic();
+            byte[] cover_pic = wishList.getCover_pic();
             preparedStatement.setString(1, list_name);
             preparedStatement.setString(2, occasion);
-            preparedStatement.setBlob(3, cover_pic);
+            preparedStatement.setBytes(3, cover_pic);
             preparedStatement.setInt(4, id);
 
             //execute statement

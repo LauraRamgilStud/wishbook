@@ -10,18 +10,30 @@ public class Wish {
     private String description;
     private Double price;
     private int quantity;
-    private Blob wish_pic;
+    private byte[] wish_pic;
+    private String picOut;
     private String url;
 
     public Wish() {
     }
 
-    public Wish(String wish_name, String description, Double price, int quantity, Blob wish_pic, String url) {
+    public Wish(int wishlist_id, String wish_name, String description, Double price, int quantity, byte[] wish_pic, String url) {
+        this.wishlist_id = wishlist_id;
         this.wish_name = wish_name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
         this.wish_pic = wish_pic;
+        this.url = url;
+    }
+
+    public Wish(int wishlist_id, String wish_name, String description, Double price, int quantity, String picOut, String url) {
+        this.wishlist_id = wishlist_id;
+        this.wish_name = wish_name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.picOut = picOut;
         this.url = url;
     }
 
@@ -73,14 +85,6 @@ public class Wish {
         this.quantity = quantity;
     }
 
-    public Blob getWish_pic() {
-        return wish_pic;
-    }
-
-    public void setWish_pic(Blob wish_pic) {
-        this.wish_pic = wish_pic;
-    }
-
     public String getUrl() {
         return url;
     }
@@ -89,4 +93,19 @@ public class Wish {
         this.url = url;
     }
 
+    public void setWish_pic(byte[] wish_pic) {
+        this.wish_pic = wish_pic;
+    }
+
+    public byte[] getWish_pic() {
+        return wish_pic;
+    }
+
+    public String getPicOut() {
+        return picOut;
+    }
+
+    public void setPicOut(String picOut) {
+        this.picOut = picOut;
+    }
 }
