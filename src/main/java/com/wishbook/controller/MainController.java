@@ -132,5 +132,4 @@ public class MainController {
         session.removeAttribute("user");
         return "redirect:/";
     }
-
 }
