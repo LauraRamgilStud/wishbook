@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" href="../static/css/profile.css" th:href="@{css/profile.css}">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
+    <meta http-equiv="refresh">
     <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/profile.css" th:href="@{/css/profile.css}">
+    <div th:insert="fragments/header-fragment.html"></div>
 </head>
 <body>
-<div class = "container">
-    <div th:insert="fragments/header-fragment.html"></div>
-    <div th:insert="fragments/footer-fragment.html"></div>
-    <div class="profile_container">
-            <form th:action="@{/update-profile}" method="post">
-                <div class="personal">
-                    <h4>Personal</h4>
-                    <div class="persContent">
-                        <div class="fn">
-                            <td>First name:</td>
-                            <td><input type="text" placeholder="First name" name="fname" th:value="${session.user.getFname()}"></td>
+    <div class="profile-wrapper">
+        <div class = "container">
+            <div class="profile_container">
+                    <form th:action="@{/update-profile}" method="post">
+                        <div class="personal">
+                            <h4>Personal</h4>
+                            <div class="persContent">
+                                <div class="fn">
+                                    <td>First name:</td>
+                                    <td><input type="text" placeholder="First name" name="fname" th:value="${session.user.getFname()}"></td>
+                                </div>
+                                <div class="ln">
+                                    <td>Last name:</td>
+                                    <td ><input type="text" placeholder="Last name" name="lname" th:value="${session.user.getLname()}"></td>
+                                </div>
+                                <div class="em">
+                                    <td>Email:</td>
+                                    <td><input class="button-30" type="mail" placeholder="Email" name="email" th:value="${session.user.getEmail()}"></td>
+                                </div>
+                                <div class="epm">
+                                    <td><input class="button-30" type="submit" value="Edit profile information"></td>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ln">
-                            <td>Last name:</td>
-                            <td><input type="text" placeholder="Last name" name="lname" th:value="${session.user.getLname()}"></td>
+                        <div class="safety">
+                            <h4>Safety</h4>
+                            <div class="cp">
+                                <td><input class="button-30" type="submit" value="Change password" name=""></td>
+                            </div>
                         </div>
-                        <div class="em">
-                            <td>Email:</td>
-                            <td><input type="mail" placeholder="Email" name="email" th:value="${session.user.getEmail()}"></td>
+                        <div class="administration">
+                            <h4>Administration</h4>
+                            <div class="dp">
+                                <td><input class="button-30" type="submit" value="Delete profile" name=""></td>
+                            </div>
                         </div>
-                        <div class="epm">
-                            <td><input type="submit" value="Edit profile information"></td>
-                        </div>
+                    </form>
+                    <div class="logout">
+                        <td><a th:href="@{/logout}"><button class="button-30">Logout</button></a></td>
                     </div>
-                </div>
-                <div class="safety">
-                    <h4>Safety</h4>
-                    <div class="cp">
-                        <td><input type="submit" value="Change password" name=""></td>
-                    </div>
-                </div>
-                <div class="administration">
-                    <h4>Administration</h4>
-                    <div class="dp">
-                        <td><input type="submit" value="Delete profile" name=""></td>
-                    </div>
-                </div>
-            </form>
-            <div class="logout">
-                <td><a th:href="@{/logout}"><button>Logout</button></a></td>
             </div>
-        <picture class="pp">
-            <img src="../static/images/pp.jpg" th:src="@{images/pp.jpg}" alt="profile picture">
-        </picture>
+            <picture class="pp">
+                <img src="../static/images/pp.jpg" th:src="@{images/pp.jpg}" alt="profile picture">
+            </picture>
+        </div>
     </div>
-</div>
 </body>
+<footer>
+    <div th:insert="fragments/footer-fragment.html"></div>
+</footer>
 </html>
