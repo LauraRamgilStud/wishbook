@@ -5,25 +5,21 @@
   <title>Title</title>
 </head>
 <body>
-<form action="/update-wishlist" th:action="@{/update-wishlist}" method="POST" enctype="multipart/form-data">
-  <table>
-    <h4>Update wishlist</h4>
-    <tr>
-      <td>Name:</td>
-      <td><input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" th:value="${session.wishlistFromWishlistView.getList_name()}"></td>
-    </tr>
-    <tr>
-      <td>Occasion:</td>
-      <td><input type="text" placeholder="Whats the occasion?" name="occasion" th:value="${session.wishlistFromWishlistView.getOccasion()}"></td>
-    </tr>
-    <tr>
-      <td>Cover picture:</td>
-      <td><input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic"></td>
-    </tr>
-    <tr>
-      <td><input type="submit" value="Update wishlist"></td>
-    </tr>
-  </table>
-</form>
+  <form class="update-wishlist-form" action="/update-wishlist" th:action="@{/update-wishlist}" method="POST" enctype="multipart/form-data" th:fragment="wishlist (id, name, occasion)">
+    <h2 class="form-header">Update wishlist</h2>
+    <div class="form-top">
+        <label for="list-name">Name:</label>
+        <input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" th:value="${name}">
+        <label for="occasion">Occasion:</label>
+        <input type="text" id="occasion" placeholder="Whats the occasion?" name="occasion" th:value="${occasion}">
+        <label for="cover-pic">Cover picture:</label>
+        <input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic">
+    </div>
+    <div class="form-buttons">
+      <button class="button-30" type="submit" onclick="closeEditBookForm()">Submit</button>
+      <button class="button-30" onclick="closeEditBookForm()">Cancel</button>
+    </div>
+  </form>
+<script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ html {
 ul {
     list-style-type: none;
 }
-/* HEADER */
+/*!* HEADER *!
 nav {
     position: fixed;
     top: 0;
@@ -93,7 +93,7 @@ nav footer{
     -webkit-backdrop-filter: blur(9px);
     border: var(--border);
     width: 100%;
-}
+}*/
 /* FOOTER */
 .footer{
     position: fixed;

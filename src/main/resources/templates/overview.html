@@ -2,32 +2,52 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh">
     <title>Overview</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css" th:href="@{css/buttons.css}"/>
+    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
 </head>
 <body>
-    <form>
-        <table>
-            <tr>
-                <td><a href="#All lists" class="nav-link">All lists</a></td>
-                <td><a href="#My lists" class="nav-link">My lists</a></td>
-                <td><a href="#Lists I follow" class="nav-link">Lists I follow</a></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="New wish"></td>
-                <td><input type="submit" value="New wishlist"></td>
-            </tr>
-        </table>
-    </form>
-    <form>
-        <table>
-            <h4>My wishlists</h4>
-            <td><a href="#Show all" class="nav-link">Show all</a></td>
-        </table>
-        <table>
-            <h4>Lists I follow</h4>
-            <td><a href="#Show all" class="nav-link">Show all</a></td>
-        </table>
-    </form>
-    <a th:href="@{/logout}"><button>Logout</button></a>
+    <section class="hero">
+        <section class="top-section section-style">
+            <div class="top-left-section">
+                <button class="button-30" onclick="showAllBooks()">All Books</button>
+                <button class="button-30" onclick="showMyBooks()">My Books</button>
+                <button class="button-30" onclick="showBooksFollowing()">Books following</button>
+            </div>
+            <div class="top-right-section">
+                <button class="button-30" onclick="openCreateBookForm()">Add Wishbook</button>
+            </div>
+        </section>
+
+        <section class="bottom-section section-style" id="all-books">
+            <div id="my-books">
+                <h2 class="bottom-header">Your Wishbooks</h2>
+
+                <div class="items-wrapper">
+
+                    <div th:each="wishlist : ${session.wishlistLists}">
+                        <a th:href="@{'/wishlist-page/'+${wishlist.getId()}}">
+                        <div class="items">
+                            <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wishlist.getPicOut()}" alt="Wishlist cover picture" src="">
+                            <div class="item-info">
+                                <span class="item-name" th:text="${wishlist.getList_name()}"></span>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="books-following">
+                <h1>Testing books</h1>
+            </div>
+        </section>
+        <div class="form-container" id="create-book-form" th:insert="fragments/create-wishlist-form-fragment"></div>
+    </section>
+    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{javaScript/script.js}"></script>
 </body>
+<footer>
+<!--    <div th:insert="fragments/footer-fragment.html"></div>-->
+</footer>
 </html>

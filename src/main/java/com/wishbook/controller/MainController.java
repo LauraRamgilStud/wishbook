@@ -102,19 +102,22 @@ public class MainController {
 
     //POST MAPPING FOR UPDATING WISHLIST
     @PostMapping("/update-wishlist")
-    public String updateWishList(@RequestParam("wishlist-name") String wishListName,
+    public String updateWishList(@RequestParam("list-name") String wishListName,
                                  @RequestParam("occasion") String occasion,
                                  @RequestParam("cover-pic")MultipartFile coverPic, HttpSession session){
-        WishList wishList = (WishList)session.getAttribute("wishlistFromWishlistView");
-        try {
-            wishList.setList_name(wishListName);
-            wishList.setOccasion(occasion);
-            wishList.setCover_pic(coverPic.getBytes());
-            wishListRepository.updateWishList(wishList);
-        }catch (IOException e){
-            e.printStackTrace();
+        User user = (User) session.getAttribute("user");
+        WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
+        if(wishList != null) {
+            try {
+                wishList.setList_name(wishListName);
+                wishList.setOccasion(occasion);
+                wishList.setCover_pic(coverPic.getBytes());
+                wishListRepository.updateWishList(wishList);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
+        assert wishList != null;
         return "redirect:/wishlist-page/"+wishList.getId();
     }
 
@@ -152,9 +155,8 @@ public class MainController {
 
 
 
-    @PostMapping("/create-wish/{wishlistID}")
-    public String createWish(@PathVariable("wishlistID") int wishlistID,
-                             HttpSession session,
+    @PostMapping("/create-wish")
+    public String createWish(HttpSession session,
                              @RequestParam("wish-name") String wishName,
                              @RequestParam("description") String description,
                              @RequestParam("price") double price,
@@ -167,9 +169,6 @@ public class MainController {
                 Wish wish = new Wish(wishList.getId(), wishName, description, price, quantity, wishPic.getBytes(), url);
                 wishRepository.addWish(wish);
                 return "redirect:/wishlist-page";
-            }else{
-                Wish wish = new Wish(wishlistID, wishName, description, price, quantity, wishPic.getBytes(), url);
-                wishRepository.addWish(wish);
             }
         }catch (IOException e){
             e.printStackTrace();

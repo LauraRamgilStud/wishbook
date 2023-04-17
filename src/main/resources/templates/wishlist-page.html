@@ -2,10 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List Page</title>
+    <title>Book</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css" th:href="@{/css/buttons.css}"/>
+    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
 </head>
 <body>
+<section class="hero">
+    <section class="top-section section-style">
+        <div class="top-left-section">
+            <button class="button-30" onclick="openCreateWishForm()">Add Wish</button>
+        </div>
+        <div class="top-right-section">
+            <button class="button-30" onclick="openEditBookForm()">Edit Book</button>
+        </div>
+    </section>
 
+    <section class="bottom-section section-style">
+        <h2 class="bottom-header">Wishes</h2>
 
+        <div class="items-wrapper">
+            <div th:each="wish : ${session.listOfWishes}">
+                <div class="items">
+                    <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="Wish picture" src="">
+                    <div class="item-info">
+                        <span class="item-name" th:text="${wish.getWish_name()}"></span>
+                        <button>Edit Wish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
+    <div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
+</section>
+<script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </body>
+<footer>
+        <div th:insert="fragments/footer-fragment.html"></div>
+</footer>
 </html>
+
