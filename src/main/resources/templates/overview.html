@@ -26,7 +26,9 @@
                 <h2 class="bottom-header">Your Wishbooks</h2>
 
                 <div class="items-wrapper">
-
+                    <div onclick="openCreateBookForm()" class="add-book">
+                        <img th:src="@{/images/plus.svg}" alt="Add book" src="">
+                    </div>
                     <div th:each="wishlist : ${session.wishlistLists}">
                         <a th:href="@{'/wishlist-page/'+${wishlist.getId()}}">
                         <div class="items">
