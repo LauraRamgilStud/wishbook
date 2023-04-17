@@ -28,8 +28,7 @@ body{
     background-size: cover;
     color: var(--primary-color);
     overflow: scroll;
-
-    position: relative;
+    font-family: var(--font-family);
 }
 html {
     scroll-behavior: smooth;
@@ -37,25 +36,11 @@ html {
 ul {
     list-style-type: none;
 }
-
+/*############################################################*/
 /* HEADER */
 nav {
     position: fixed;
     top: 0;
-    left: 0;
-    height: 80px;
-    z-index: 999;
-}
-
-a {
-    text-decoration: none;
-}
-/*############################################################*/
-
-/* FOOTER */
-footer{
-    position: fixed;
-    bottom: 0;
     left: 0;
     height: 80px;
     z-index: 999;
@@ -70,9 +55,6 @@ footer{
     border: var(--border);
     width: 100%;
 }
-/*############################################################*/
-
-/* HEADER */
 nav h1 {
     color: var(--primary-color);
 }
@@ -94,6 +76,38 @@ nav ul li {
 nav img {
     height: 80px;
 }
+/*############################################################*/
+/* FOOTER */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3.5rem;
+    background: var(--bg-color);
+    box-shadow: var(--primary-shadow);
+    backdrop-filter: var(--backdrop);
+    -webkit-backdrop-filter: blur(9px);
+    border: var(--border);
+    width: 100%;
+}
+footer nav{
+    bottom: 0;
+}
+
+footer ul {
+    display: flex;
+    gap: 1.9rem;
+    justify-content: space-between;
+    align-content: space-evenly;
+}
+/*############################################################*/
+
+
 
 /*############################################################*/
 
