@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 1;
+    z-index: 3;
 }
 .hero {
     display: flex;
@@ -61,6 +61,7 @@ input[type=password] {
     color: #36395A;
     font-family: "JetBrains Mono",monospace;
 }
+/*############################################################*/
 /* BUTTONS */
 .button-30 {
    align-items: center;
@@ -107,7 +108,7 @@ input[type=password] {
 #loginButton.hide {
     display: none;
 }
-
+/*############################################################*/
 /* SHOOTING STARS */
 section{
     position: absolute;
@@ -174,11 +175,11 @@ span:nth-child(2){
     right: 80px;
     left: initial;
     animation-delay: 0.2s;
-    animation-duration: 3s;
+    animation-duration: 1.25s;
 }
 span:nth-child(3){
     top: 0;
-    right: 0px;
+    right: 110px;
     left: initial;
     animation-delay: 0.4s;
     animation-duration: 2s;
@@ -202,7 +203,7 @@ span:nth-child(6){
     right: 600px;
     left: initial;
     animation-delay: 1s;
-    animation-duration: 3s;
+    animation-duration: 1.3s;
 }
 span:nth-child(7){
     top: 300px;
@@ -212,8 +213,8 @@ span:nth-child(7){
     animation-duration: 1.75s;
 }
 span:nth-child(8){
-    top: 0px;
-    right: 700px;
+    top: 10px;
+    right: 400px;
     left: initial;
     animation-delay: 1.4s;
     animation-duration: 1.25s;
@@ -223,5 +224,5 @@ span:nth-child(9){
     right: 1000px;
     left: initial;
     animation-delay: 0.75s;
-    animation-duration: 2.25s;
+    animation-duration: 1.25s;
 }

@@ -36,8 +36,6 @@ html {
 ul {
     list-style-type: none;
 }
-
-
 /*############################################################*/
 /* HEADER */
 nav {
@@ -96,6 +94,16 @@ footer {
     -webkit-backdrop-filter: blur(9px);
     border: var(--border);
     width: 100%;
+}
+footer nav{
+    bottom: 0;
+}
+
+footer ul {
+    display: flex;
+    gap: 1.9rem;
+    justify-content: space-between;
+    align-content: space-evenly;
 }
 /*############################################################*/
 
