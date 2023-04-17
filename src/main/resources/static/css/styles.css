@@ -28,7 +28,8 @@ body{
     background-size: cover;
     color: var(--primary-color);
     overflow: scroll;
-    font-family: var(--font-family);
+
+    position: relative;
 }
 html {
     scroll-behavior: smooth;
@@ -36,11 +37,25 @@ html {
 ul {
     list-style-type: none;
 }
-/*############################################################*/
+
 /* HEADER */
 nav {
     position: fixed;
     top: 0;
+    left: 0;
+    height: 80px;
+    z-index: 999;
+}
+
+a {
+    text-decoration: none;
+}
+/*############################################################*/
+
+/* FOOTER */
+footer{
+    position: fixed;
+    bottom: 0;
     left: 0;
     height: 80px;
     z-index: 999;
@@ -55,6 +70,9 @@ nav {
     border: var(--border);
     width: 100%;
 }
+/*############################################################*/
+
+/* HEADER */
 nav h1 {
     color: var(--primary-color);
 }
