@@ -27,7 +27,7 @@
 
                 <div class="items-wrapper">
                     <div onclick="openCreateBookForm()" class="add-book">
-                        <img th:src="@{/images/plus.svg}" alt="Add book" src="">
+                        <img th:src="@{images/plus.svg}" alt="Add book" src="">
                     </div>
                     <div th:each="wishlist : ${session.wishlistLists}">
                         <a th:href="@{'/wishlist-page/'+${wishlist.getId()}}">

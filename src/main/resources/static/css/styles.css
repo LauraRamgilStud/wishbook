@@ -9,7 +9,7 @@
     --secondary-color: #8436f5;
     --primary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --secondary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    --backdrop: blur(30px);
+    --backdrop: blur(9px);
     --bottom-margin: 0.5rem;
     --bottom-margin-2: 1rem;
     --line-height: 1.7rem;
@@ -28,8 +28,7 @@ body{
     background-size: cover;
     color: var(--primary-color);
     overflow: scroll;
-
-    position: relative;
+    font-family: var(--font-family);
 }
 html {
     scroll-behavior: smooth;
@@ -38,24 +37,14 @@ ul {
     list-style-type: none;
 }
 
-/* HEADER */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 80px;
-    z-index: 999;
-}
-
 a {
     text-decoration: none;
 }
 /*############################################################*/
-
-/* FOOTER */
-footer{
+/* HEADER */
+nav {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     height: 80px;
     z-index: 999;
@@ -70,9 +59,7 @@ footer{
     border: var(--border);
     width: 100%;
 }
-/*############################################################*/
 
-/* HEADER */
 nav h1 {
     color: var(--primary-color);
 }
@@ -123,9 +110,6 @@ footer ul {
     justify-content: space-between;
     align-content: space-evenly;
 }
-/*############################################################*/
-
-
 
 /*############################################################*/
 
