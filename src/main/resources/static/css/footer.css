@@ -1,0 +1,42 @@
+/* GENERAL */
+:root {
+    --font-family: "JetBrains Mono",monospace;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bolder-font: 900;
+    --bg-color: rgba(255, 255, 255, 0.2);
+    --primary-color: #bc5bf1;
+    --secondary-color: #8436f5;
+    --primary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --secondary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    --backdrop: blur(9px);
+    --bottom-margin: 0.5rem;
+    --bottom-margin-2: 1rem;
+    --line-height: 1.7rem;
+    --transition: 0.3s;
+    --border: 1px solid rgba(255, 255, 255, 0.02);
+}
+/*############################################################*/
+
+/* CSS Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("../images/Background1.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--primary-color);
+    overflow: scroll;
+
+    position: relative;
+}
+html {
+    scroll-behavior: smooth;
+}
+ul {
+    list-style-type: none;
+}
+/*############################################################*/

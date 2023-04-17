@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Nav bar</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{css/home.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/header.css" th:href="@{css/header.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css" th:href="@{css/buttons.css}"/>
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
 </head>
 <body>
   <header>
@@ -13,7 +25,7 @@
 
           </div>
           <ul class="nav">
-              <li><a href="#login" class="button-30" onclick="toggleForm()">Login</a></a></li>
+              <li><a href="#login" class="button-30" onclick="toggleForm()">Login</a></li>
               <li><a href="#register" class="button-30">Register</a></li>
           </ul>
       </nav>
