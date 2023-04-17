@@ -34,10 +34,10 @@ body{
     right: 0;
     bottom: 65%;
     position: absolute;
-    z-index: -1;
+    z-index: -2;
 }
 
-/* Define the styles for the profile picture */
+/* Define the styles for the profile picture
 .pp img {
     background-image: url("../images/pp.jpg");
     background-size: cover;
@@ -49,7 +49,7 @@ body{
     left: 11%;
     z-index: 11;
     border: 4px solid rgba(255, 255, 255, 0.48);
-}
+}*/
 
 
 .profile_container {
@@ -94,7 +94,7 @@ body{
 
 .epm {
     position: absolute;
-    top: 33%;
+    top: 35%;
 }
 
 .safety h4 {
@@ -125,7 +125,7 @@ body{
 
 .logout {
     position: absolute;
-    top: 78%;
+    top: 80%;
     font-size: 1.5rem;
 }
 
