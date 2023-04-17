@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nav bar</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/header.css" th:href="@{css/header.css}"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css" th:href="@{css/buttons.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
     <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -21,8 +20,9 @@
   <header>
       <nav>
           <div class="logo">
-              <img alt="Could not render logo" src="/../../images/icon_wishbook.png" th:src="@{images/icon_wishbook.png}">
-
+              <a th:href="@{/}">
+                <img alt="Could not render logo" src="/../../images/icon_wishbook.png" th:src="@{images/icon_wishbook.png}">
+              </a>
           </div>
           <ul class="nav">
               <li><a href="#login" class="button-30" onclick="toggleForm()">Login</a></li>
