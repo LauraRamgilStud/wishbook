@@ -29,16 +29,16 @@ body{
     color: var(--primary-color);
     overflow: scroll;
     font-family: var(--font-family);
-    z-index: -3;
-}
-a{
-    text-decoration: none;
 }
 html {
     scroll-behavior: smooth;
 }
 ul {
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
 }
 /*############################################################*/
 /* HEADER */
@@ -110,6 +110,8 @@ footer ul {
     align-content: space-evenly;
 }
 /*############################################################*/
+
+/* BUTTONS */
 .button-30 {
     align-items: center;
     appearance: none;
@@ -152,7 +154,6 @@ footer ul {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }
-
 
 
 

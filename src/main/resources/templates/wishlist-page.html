@@ -11,7 +11,7 @@
 <section class="hero">
     <section class="top-section section-style">
         <div class="top-left-section">
-            <button class="button-30" onclick="openCreateWishForm()">Add Wish</button>
+            <a th:href="@{/overview}"><button class="button-30"><img th:src="@{/images/arrow_left.svg}" alt="" src="">Overview</button></a>
         </div>
         <div class="top-right-section">
             <button class="button-30" onclick="openEditBookForm()">Edit Book</button>
@@ -22,14 +22,18 @@
         <h2 class="bottom-header">Wishes</h2>
 
         <div class="items-wrapper">
+            <div onclick="openCreateWishForm()" class="add-item">
+                <img th:src="@{/images/plus.svg}" alt="Add Wish" src="">
+            </div>
             <div th:each="wish : ${session.listOfWishes}">
-                <div class="items">
-                    <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="Wish picture" src="">
-                    <div class="item-info">
-                        <span class="item-name" th:text="${wish.getWish_name()}"></span>
-                        <button>Edit Wish</button>
+                <a>
+                    <div class="items">
+                        <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="Wish picture" src="">
+                        <div class="item-info">
+                            <span class="item-name" th:text="${wish.getWish_name()}"></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -39,7 +43,10 @@
 <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </body>
 <footer>
-        <div th:insert="fragments/footer-fragment.html"></div>
+        <!--<div th:insert="fragments/footer-fragment.html"></div>-->
 </footer>
 </html>
+
+
+
 

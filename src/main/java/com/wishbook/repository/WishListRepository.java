@@ -69,6 +69,7 @@ public class WishListRepository {
             wishList.setUser_id(userID);
             wishList.setList_name(listName);
             wishList.setOccasion(occasion);
+            wishList.setCover_pic(coverPic);
             wishList.setPicOut(base64CoverPic);
 
         }catch (SQLException e){
@@ -132,7 +133,7 @@ public class WishListRepository {
 
     public void deleteWishListByID(int id){
         //SQL QUERY
-        final String DELETE_QUERY = "DELETE FROM wishlist WHERE id = ?";
+        final String DELETE_QUERY = "DELETE FROM wishbook.wishlist WHERE id = ?";
 
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
