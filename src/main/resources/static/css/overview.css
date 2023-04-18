@@ -2,6 +2,7 @@
 .hero {
     display: flex;
     flex-direction: column;
+    margin-top: 6rem;
 }
 
 .top-section {
@@ -9,17 +10,18 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    position: relative;
-    top: 9.375rem;
     margin: 0 1rem 0 1rem;
+}
+
+.back-arrow-img {
+    height: 0.8rem;
+    margin-right: 1rem;
 }
 
 .bottom-section {
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 9.375rem;
-    margin: 0 1rem 0 1rem;
+
 }
 
 .bottom-header {
@@ -55,10 +57,10 @@
 }
 
 .item-info {
-    margin-top: 1rem;
+    margin: 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 10px;
 }
 

@@ -11,10 +11,11 @@
 <section class="hero">
     <section class="top-section section-style">
         <div class="top-left-section">
-            <a th:href="@{/overview}"><button class="button-30"><img th:src="@{/images/arrow_left.svg}" alt="" src="">Overview</button></a>
+            <a th:href="@{/overview}"><button class="button-30"><img class="back-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Overview</button></a>
         </div>
         <div class="top-right-section">
             <button class="button-30" onclick="openEditBookForm()">Edit Book</button>
+            <a th:href="@{'/delete-wishlist/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30">Delete Book</button></a>
         </div>
     </section>
 
