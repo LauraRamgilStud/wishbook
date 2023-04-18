@@ -1,5 +1,4 @@
-/* Importing home.css */
-@import url('styles.css');
+
 
 * {
     box-sizing: border-box;
@@ -22,6 +21,7 @@ body{
     align-items: center;
     position: relative;
     top:15%;
+    z-index: 998;
 }
 
 .profile-wrapper::after {
@@ -37,7 +37,7 @@ body{
     z-index: -2;
 }
 
-/* Define the styles for the profile picture
+/* Define the styles for the profile picture*/
 .pp img {
     background-image: url("../images/pp.jpg");
     background-size: cover;
@@ -49,7 +49,7 @@ body{
     left: 11%;
     z-index: 11;
     border: 4px solid rgba(255, 255, 255, 0.48);
-}*/
+}
 
 
 .profile_container {
