@@ -26,9 +26,22 @@
       </a>
     </div>
     <ul class="nav">
-      <li><a href="#" class="button-30">Profile</a></li>
-    </ul>
+      <li><a href="#" class="button-30" onclick="toggleForm()">Profile</a></li>
+        <li><a href="#" class="button-30">Overview</a></li>
+        <form class="profile-form-fragment">
+          <a th:href="@{/overview.html}"><button class="button-30">Overview</button></a>
+          <a th:href="@{/profile}"><button class="button-30">Profile</button></a>
+          <a th:href="@{/footer-fragment.html#about-us}">About Us</a>
+          <a th:href="@{/footer-fragment.html#privacy-policy}">Privacy Policy</a>
+          <a th:href="@{/footer-fragment.html#faq}">FAQ</a>
+          <a th:href="@{/footer-fragment.html#contact-us}">Contact Us</a>
+          <div class="logout">
+          <td><a th:href="@{/logout}"><button class="button-30">Logout</button></a></td>
+          </div>
+        </form>
+        </ul>
   </nav>
 </header>
 </body>
+<script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </html>
