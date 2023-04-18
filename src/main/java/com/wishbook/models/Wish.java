@@ -8,8 +8,8 @@ public class Wish {
     private int wishlist_id;
     private String wish_name;
     private String description;
-    private Double price;
-    private int quantity;
+    private String price;
+    private String quantity;
     private byte[] wish_pic;
     private String picOut;
     private String url;
@@ -17,7 +17,7 @@ public class Wish {
     public Wish() {
     }
 
-    public Wish(int wishlist_id, String wish_name, String description, Double price, int quantity, byte[] wish_pic, String url) {
+    public Wish(int wishlist_id, String wish_name, String description, String price, String quantity, byte[] wish_pic, String url) {
         this.wishlist_id = wishlist_id;
         this.wish_name = wish_name;
         this.description = description;
@@ -27,7 +27,7 @@ public class Wish {
         this.url = url;
     }
 
-    public Wish(int wishlist_id, String wish_name, String description, Double price, int quantity, String picOut, String url) {
+    public Wish(int wishlist_id, String wish_name, String description, String price, String quantity, String picOut, String url) {
         this.wishlist_id = wishlist_id;
         this.wish_name = wish_name;
         this.description = description;
@@ -69,19 +69,19 @@ public class Wish {
         this.description = description;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 

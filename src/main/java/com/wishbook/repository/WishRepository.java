@@ -34,12 +34,13 @@ public class WishRepository {
                 int id = resultSet.getInt(1);
                 String wishName = resultSet.getString(3);
                 String description = resultSet.getString(4);
-                double price = resultSet.getDouble(5);
-                int quantity = resultSet.getInt(6);
+                String price = resultSet.getString(5);
+                String quantity = resultSet.getString(6);
                 byte[] wishPic = resultSet.getBytes(7);
                 String base64Pic = Base64.getEncoder().encodeToString(wishPic);
                 String url = resultSet.getString(8);
                 Wish wish = new Wish(wishListID, wishName, description, price, quantity, base64Pic, url);
+                wish.setWish_pic(wishPic);
                 wish.setId(id);
                 list.add(wish);
             }
@@ -62,8 +63,8 @@ public class WishRepository {
             preparedStatement.setInt(1, wish.getWishlist_id());
             preparedStatement.setString(2, wish.getWish_name());
             preparedStatement.setString(3, wish.getDescription());
-            preparedStatement.setDouble(4, wish.getPrice());
-            preparedStatement.setInt(5, wish.getQuantity());
+            preparedStatement.setString(4, wish.getPrice());
+            preparedStatement.setString(5, wish.getQuantity());
             preparedStatement.setBytes(6, wish.getWish_pic());
             preparedStatement.setString(7, wish.getUrl());
 
@@ -89,8 +90,8 @@ public class WishRepository {
             //Set parameters
             preparedStatement.setString(2, wish.getWish_name());
             preparedStatement.setString(3, wish.getDescription());
-            preparedStatement.setDouble(4, wish.getPrice());
-            preparedStatement.setInt(5, wish.getQuantity());
+            preparedStatement.setString(4, wish.getPrice());
+            preparedStatement.setString(5, wish.getQuantity());
             preparedStatement.setBytes(6, wish.getWish_pic());
             preparedStatement.setString(7, wish.getUrl());
 

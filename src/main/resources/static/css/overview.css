@@ -3,15 +3,6 @@
     display: flex;
     flex-direction: column;
 }
-html {
-    height: 100%;
-}
-
-body{
-    height: 100%;
-    margin: 0;
-    background: linear-gradient(#8C6CAC 0%, #D28DAC 100%) no-repeat fixed;
-}
 
 .top-section {
     display: flex;
@@ -53,13 +44,14 @@ body{
     min-width: 9.375rem;
     margin: 1rem;
     background-color: var(--bg-color);
-    /*width: 100%;*/
+    backdrop-filter: var(--backdrop);
+    border-radius: 10px;
 }
 
 .item-img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .item-info {
@@ -67,11 +59,40 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 10px;
 }
 
 .item-info span {
-    color: black;
+    font-weight: var(--bold-font);
+    color: #34B5E0;
+    align-self: center;
+    justify-self: center;
 }
+
+.items button {
+    align-self: center;
+    justify-self: center;
+}
+
+.add-item, .add-book {
+    display: flex;
+    height: 12.5rem;
+    width: 12.5rem;
+    min-height: 9.375rem;
+    min-width: 9.375rem;
+    margin: 1rem;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: var(--backdrop);
+}
+
+.add-item img, .add-book img {
+    width: 3rem;
+    height: 3rem;
+}
+
 
 /*############################################################*/
 

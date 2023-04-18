@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -105,19 +106,20 @@ public class MainController {
     public String updateWishList(@RequestParam("list-name") String wishListName,
                                  @RequestParam("occasion") String occasion,
                                  @RequestParam("cover-pic")MultipartFile coverPic, HttpSession session){
-        User user = (User) session.getAttribute("user");
         WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
-        if(wishList != null) {
+        byte[] pic = wishList.getCover_pic();
+        System.out.println(Arrays.toString(pic));
             try {
                 wishList.setList_name(wishListName);
                 wishList.setOccasion(occasion);
-                wishList.setCover_pic(coverPic.getBytes());
+                if(!coverPic.isEmpty()) {
+                    wishList.setCover_pic(coverPic.getBytes());
+                }
                 wishListRepository.updateWishList(wishList);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        assert wishList != null;
+
         return "redirect:/wishlist-page/"+wishList.getId();
     }
 
@@ -159,33 +161,33 @@ public class MainController {
     public String createWish(HttpSession session,
                              @RequestParam("wish-name") String wishName,
                              @RequestParam("description") String description,
-                             @RequestParam("price") double price,
-                             @RequestParam("quantity") int quantity,
+                             @RequestParam("price") String price,
+                             @RequestParam("quantity") String quantity,
                              @RequestParam("wish-pic") MultipartFile wishPic,
                              @RequestParam("url") String url){
+
+        WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
+
         try{
-            WishList wishList = (WishList) session.getAttribute("wishlistIDFromWishlistView");
-            if(wishList != null){
-                Wish wish = new Wish(wishList.getId(), wishName, description, price, quantity, wishPic.getBytes(), url);
-                wishRepository.addWish(wish);
-                return "redirect:/wishlist-page";
-            }
+            Wish wish = new Wish(wishList.getId(), wishName, description, price, quantity, wishPic.getBytes(), url);
+            wishRepository.addWish(wish);
         }catch (IOException e){
             e.printStackTrace();
         }
 
-        return "redirect:/overview";
+        return "redirect:/wishlist-page/"+wishList.getId();
     }
 
     @PostMapping("update-wish/{wishlistID}/{wishID}")
-    public String updateWish(@PathVariable("wishlistID") int listID,
+    public String updateWish(HttpSession session,
                              @PathVariable("wishID") int id,
                              @RequestParam("wish-name") String wishName,
                              @RequestParam("description") String description,
-                             @RequestParam("price") double price,
-                             @RequestParam("quantity") int quantity,
+                             @RequestParam("price") String price,
+                             @RequestParam("quantity") String quantity,
                              @RequestParam("wish-pic") MultipartFile wishPic,
                              @RequestParam("url") String url){
+        WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
         try{
             Wish wish = new Wish();
             wish.setId(id);
@@ -193,13 +195,15 @@ public class MainController {
             wish.setDescription(description);
             wish.setPrice(price);
             wish.setQuantity(quantity);
-            wish.setWish_pic(wishPic.getBytes());
+            if(!wishPic.isEmpty()) {
+                wish.setWish_pic(wishPic.getBytes());
+            }
             wish.setUrl(url);
             wishRepository.updateWish(wish);
         }catch (IOException e){
             e.printStackTrace();
         }
-        return "redirect:/wishlist-page/"+listID;
+        return "redirect:/wishlist-page/"+wishList.getId();
     }
 
     @GetMapping("/logout")
