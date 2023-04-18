@@ -6,11 +6,11 @@
     <title>Overview</title>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{css/overview.css}"/>
-    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
 </head>
 <body>
-    <section class="hero">
-        <section class="top-section section-style">
+    <header th:insert="fragments/header-loggedIn-fragment.html"></header>
+    <div class="hero">
+        <div class="top-section section-style">
             <div class="top-left-section">
                 <button class="button-30" onclick="showAllBooks()">All Books</button>
                 <button class="button-30" onclick="showMyBooks()">My Books</button>
@@ -19,9 +19,9 @@
             <div class="top-right-section">
                 <button class="button-30" onclick="openCreateBookForm()">Add Wishbook</button>
             </div>
-        </section>
+        </div>
 
-        <section class="bottom-section section-style" id="all-books">
+        <div class="bottom-section section-style" id="all-books">
             <div id="my-books">
                 <h2 class="bottom-header">Your Wishbooks</h2>
 
@@ -44,12 +44,10 @@
             <div id="books-following">
                 <h1>Testing books</h1>
             </div>
-        </section>
+        </div>
         <div class="form-container" id="create-book-form" th:insert="fragments/create-wishlist-form-fragment"></div>
-    </section>
-    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{javaScript/script.js}"></script>
+    </div>
+    <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
-<footer>
-<!--    <div th:insert="fragments/footer-fragment.html"></div>-->
-</footer>
+    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{javaScript/script.js}"></script>
 </html>

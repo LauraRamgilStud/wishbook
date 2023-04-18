@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Footer</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -17,27 +17,30 @@
     />
 </head>
 <body>
-        <div class="footer nav">
-            <div class="row">
-            <div class="footer-col">
-                <h4>Wishlist</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Get help</h4>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><td>Email:</td></li>
-                    <li><td>contact@wishlist.com</td></li>
-                    <li><input class="button-30" type="submit" value="contact us"></li>
-                </ul>
+    <footer th:fragment="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-col1 footer-col">
+                    <h6>About</h6>
+                    <p>TEXT ABOUT THE WEBSITE</p>
+                </div>
+                <div class="footer-col2 footer-col">
+                    <h6>WishBook</h6>
+                    <ul class="footer-links">
+                        <li><a>About Us</a></li>
+                        <li><a>Private Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col3 footer-col">
+                    <h6>Get Help</h6>
+                    <ul class="footer-links">
+                        <li><a>FAQ</a></li>
+                        <li><a>Contact Us</a></li>
+                        <li>Email: contact@wishbook.com</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-
+    </footer>
 </body>
 </html>

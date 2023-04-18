@@ -211,4 +211,11 @@ public class MainController {
         session.removeAttribute("user");
         return "redirect:/";
     }
+
+    @GetMapping("/delete-wishlist/{wishlistID}")
+    public String deleteWishbook(@PathVariable("wishlistID") int id){
+        wishListRepository.deleteWishListByID(id);
+
+        return "redirect:/overview";
+    }
 }
