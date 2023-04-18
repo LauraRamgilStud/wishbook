@@ -5,6 +5,7 @@
     <title>Book</title>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
+    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
     <div th:insert="fragments/header-loggedIn-fragment.html"></div>
 </head>
 <body>
@@ -41,7 +42,7 @@
     <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
     <div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
 </section>
-<script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
 <footer>
         <!--<div th:insert="fragments/footer-fragment.html"></div>-->
