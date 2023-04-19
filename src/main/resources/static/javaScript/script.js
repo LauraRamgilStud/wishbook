@@ -64,4 +64,12 @@ function closeCreateWishForm() {
     document.getElementById("create-wish-form").style.display = "none";
 }
 
+function openProfilePopUp() {
+    document.getElementById("profile-popup-id").style.display = "block";
+}
+
+function closeProfilePopUp() {
+    document.getElementById("profile-popup-id").style.display = "none";
+}
+
 
