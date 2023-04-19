@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
+  <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+  <div th:insert="fragments/header-loggedIn-fragment.html"></div>
+</head>
+<body>
+<div class="hero">
+  <div class="top-section">
+    <div class="wish-top-left-section">
+      <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="back-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Wishbook</button></a>
+    </div>
+    <div class="wish-top-right-section">
+      <a th:href="@{'/delete-wish/'+${session.wish.getId()}}"><button class="button-30">Delete Wish</button></a>
+    </div>
+  </div>
+  <div class="wish-bottom-section">
+      <div class="wish-container">
+            <div class="wish-image-container">
+              <img class="wish-img" th:src="'data:image/jpeg;base64,' + ${session.wish.getPicOut()}" alt="Wish picture" src="" >
+            </div>
+            <div class="wish-info-container">
+                <h3 class="wish-name" th:text="${session.wish.getWish_name()}"></h3>
+                <span class="wish-price" th:text="${session.wish.price}"></span>
+                <span class="wish-description" th:text="${session.wish.getDescription()}"></span>
+                <div class="wish-buttons-container">
+                  <button class="button-30">Edit</button>
+                  <a th:href="${session.wish.getUrl()}"><button class="button-30">Link</button></a>
+                </div>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
+<div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+</body>
+</html>

@@ -52,6 +52,39 @@ public class WishRepository {
         return list;
     }
 
+    public Wish getWishByID(int ID){
+        Wish wish = new Wish();
+        wish.setId(ID);
+        try{
+            final String QUERY = "SELECT * FROM wishbook.wish WHERE id = ?";
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(QUERY);
+            preparedStatement.setInt(1, ID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            resultSet.next();
+            String wishName = resultSet.getString(3);
+            String description = resultSet.getString(4);
+            String price = resultSet.getString(5);
+            String quantity = resultSet.getString(6);
+            byte[] wishPic = resultSet.getBytes(7);
+            String base64Pic = Base64.getEncoder().encodeToString(wishPic);
+            String url = resultSet.getString(8);
+            wish.setWish_name(wishName);
+            wish.setDescription(description);
+            wish.setPrice(price);
+            wish.setQuantity(quantity);
+            wish.setUrl(url);
+            wish.setPicOut(base64Pic);
+            wish.setWish_pic(wishPic);
+
+        }catch (SQLException e){
+            System.out.println("Could not find wishlists");
+            e.printStackTrace();
+        }
+        return wish;
+    }
+
     public void addWish(Wish wish){
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);

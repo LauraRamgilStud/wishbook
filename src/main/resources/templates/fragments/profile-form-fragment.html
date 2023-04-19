@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile-form</title>
+    <link rel="stylesheet" href="../../static/css/overview.css">
+</head>
+<body>
+    <form class="profile-form-fragment">
+        <a th:href="@{/overview.html}"><button class="button-30">Overview</button></a>
+        <a th:href="@{/profile}"><button class="button-30">Profile</button></a>
+        <a th:href="@{/footer-fragment.html#about-us}">About Us</a>
+        <a th:href="@{/footer-fragment.html#privacy-policy}">Privacy Policy</a>
+        <a th:href="@{/footer-fragment.html#faq}">FAQ</a>
+        <a th:href="@{/footer-fragment.html#contact-us}">Contact Us</a>
+        <div class="logout">
+            <td><a th:href="@{/logout}"><button class="button-30">Logout</button></a></td>
+        </div>
+    </form>
+    <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+</body>
+</html>

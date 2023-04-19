@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: nowrap;
-    margin: 0 1rem 0 1rem;
+    margin: 0 1rem 2rem 1rem;
 }
 
 .back-arrow-img {
@@ -22,7 +22,6 @@
 .bottom-section {
     display: flex;
     flex-direction: column;
-
 }
 
 .bottom-header {
@@ -96,6 +95,8 @@
     height: 3rem;
 }
 
+/*############################################################*/
+/*WISH-PAGE*/
 
 /*############################################################*/
 
@@ -187,12 +188,40 @@ input {
 
 .form-top-wish {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
     margin-top: 1rem;
+}
+
+.form-top-col1, .form-top-col2 {
+    margin: 1rem;
 }
 
 .form-buttons {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+<<<<<<< HEAD
+    margin: 2rem;
+}
+=======
     margin-top: 2rem;
 }
+
+/*PROFILE-FORM-FRAGMENT*/
+.profile-form-fragment {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    min-width: 25rem;
+    min-height: 25rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--primary-shadow);
+    backdrop-filter: var(--backdrop);
+    -webkit-backdrop-filter: blur(9px);
+    border: var(--border);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+>>>>>>> 968d741b22bd5fe98417fd70c461a66f7df2ea2e
