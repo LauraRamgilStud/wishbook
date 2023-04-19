@@ -19,7 +19,6 @@ body{
     align-items: center;
     position: relative;
     top:15%;
-    z-index: 998;
 }
 
 .profile-wrapper::after {
@@ -46,14 +45,12 @@ body{
     top: 24%;
     left: 11%;
     z-index: 11;
-    border: 4px solid rgba(255, 255, 255, 0.48);
 }
 
 
 .profile_container {
     height: 900px;
     width: 800px;
-    border-radius: 20px;
     z-index: 10;
     display: flex;
     flex-direction: column;
@@ -61,17 +58,26 @@ body{
     padding: 40px;
     color: #ffffff;
     margin-top: 750px;
+    font-family: var(--font-family);
+    border-radius: 20px;
+    /* other styles */
+    background-color: var(--bg-color);
+    backdrop-filter: var(--backdrop);
+    -webkit-backdrop-filter: blur(9px);
+    border: var(--border);
+    box-shadow: var(--primary-shadow);
 }
 
 .personal h4 {
     position: absolute;
     top: 10%;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: var(--bold-font);
 }
 
 .persContent {
     font-size: 1.5rem;
+    font-weight: var(--normal-font);
 }
 
 .fn {
@@ -99,32 +105,35 @@ body{
     position: absolute;
     top: 45%;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: var(--bold-font);
 }
 
 .cp {
     position: absolute;
     top: 53%;
     font-size: 1.5rem;
+    font-weight: var(--normal-font);
 }
 
 .administration h4 {
     position: absolute;
     top: 65%;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: var(--bold-font);
 }
 
 .dp {
     position: absolute;
     top: 73%;
     font-size: 1.5rem;
+    font-weight: var(--normal-font);
 }
 
 .logout {
     position: absolute;
     top: 80%;
     font-size: 1.5rem;
+    font-weight: var(--normal-font);
 }
 
 .personal {
@@ -142,12 +151,4 @@ body{
     background-color: rgba(255, 255, 255, 0);
 }
 
-.profile_container {
-    border-radius: 20px;
-    /* other styles */
-    background: rgba(39, 39, 39, 0.1);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
-}
+

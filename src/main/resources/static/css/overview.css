@@ -201,5 +201,27 @@ input {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+<<<<<<< HEAD
     margin: 2rem;
 }
+=======
+    margin-top: 2rem;
+}
+
+/*PROFILE-FORM-FRAGMENT*/
+.profile-form-fragment {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    min-width: 25rem;
+    min-height: 25rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--primary-shadow);
+    backdrop-filter: var(--backdrop);
+    -webkit-backdrop-filter: blur(9px);
+    border: var(--border);
+    border-radius: 10px;
+    z-index: 100;
+}
+
+>>>>>>> 968d741b22bd5fe98417fd70c461a66f7df2ea2e
