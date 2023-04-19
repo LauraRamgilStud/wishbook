@@ -19,20 +19,18 @@
     </div>
   </div>
   <div class="wish-bottom-section">
-      <div class="wish-container">
             <div class="wish-image-container">
               <img class="wish-img" th:src="'data:image/jpeg;base64,' + ${session.wish.getPicOut()}" alt="Wish picture" src="" >
             </div>
             <div class="wish-info-container">
                 <h3 class="wish-name" th:text="${session.wish.getWish_name()}"></h3>
-                <span class="wish-price" th:text="${session.wish.price}"></span>
-                <span class="wish-description" th:text="${session.wish.getDescription()}"></span>
+                <span class="wish-price" th:text="'Price: '+${session.wish.price}"></span>
+                <span class="wish-description" th:text="'Description: '+${session.wish.getDescription()}"></span>
                 <div class="wish-buttons-container">
                   <button class="button-30">Edit</button>
-                  <a th:href="${session.wish.getUrl()}"><button class="button-30">Link</button></a>
+                  <a th:href="${session.wish.getUrl()}"><button class="button-30">Go to website</button></a>
                 </div>
             </div>
-      </div>
   </div>
 </div>
 <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
