@@ -36,7 +36,7 @@ body{
 
 /* Define the styles for the profile picture*/
 .profile-icon img {
-    background-image: url("../images/pp.jpg");
+    background-image: url("../images/Profile-icon.png");
     background-size: cover;
     width: 150px;
     height: 150px;
