@@ -1,14 +1,25 @@
-function toggleForm() {
-    var loginForm = document.getElementById("loginForm");
-    var loginButton = document.getElementById("loginButton");
-    if (loginForm.style.display === "block") {
-        loginForm.style.display = "none";
-        loginButton.classList.remove("hide");
-    } else {
-        loginForm.style.display = "block";
-        loginButton.classList.add("hide");
+    function toggleForm(isLogin) {
+        var loginForm = document.getElementById("loginForm");
+        var loginButton = document.getElementById("loginButton");
+        var cancelButton = document.getElementById("cancelButton");
+
+        if (isLogin) {
+            if (loginForm.style.display === "block") {
+                loginForm.style.display = "none";
+                loginButton.classList.remove("hide");
+            } else {
+                loginForm.style.display = "block";
+                loginButton.classList.add("hide");
+            }
+            cancelButton.style.display = "inline-block";
+            loginButton.style.display = "none";
+        } else {
+            loginForm.style.display = "none";
+            cancelButton.style.display = "none";
+            loginButton.style.display = "inline-block";
+        }
     }
-}
+
 document.addEventListener("DOMContentLoaded", function() {
     var form = document.getElementById("loginForm");
     form.style.display = "none";

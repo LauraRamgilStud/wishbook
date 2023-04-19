@@ -45,14 +45,28 @@
     width: 300px;
     margin-bottom: 20px;
     left: 150px;
+    justify-content: center;
 }
 
 #login{
     left: 150px;
+    justify-content: center;
 }
+
+
 #noacc{
     left: 150px;
 }
+
+tr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+td{
+    justify-content: center;
+}
+
 
 * {
     margin: 0;
@@ -63,7 +77,7 @@ body{
     background-image: url("../images/Background.svg");
     background-size: cover;
     color: var(--primary-color);
-    overflow: hidden;
+    overflow: scroll;
     font-family: var(--font-family);
     min-height: 100vh;
     display: flex;
@@ -119,9 +133,7 @@ nav ul li {
 nav img {
     height: 80px;
 }
-
 /*############################################################*/
-
 @media (max-width:991px)
 {
     .site-footer [class^=footer-col]
@@ -136,7 +148,6 @@ nav img {
         padding-bottom:0
     }
 }
-
 /* BUTTONS */
 .button-30 {
     align-items: center;
@@ -180,7 +191,6 @@ nav img {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }
-
 /*FORM*/
 .form-popup {
     display: flex;
@@ -191,15 +201,25 @@ nav img {
     column-gap: 50px;
     border-radius: 5px;
 }
+.form-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+table{
+    justify-content: center;
+    justify-self: center;
+}
 
+/*can maybe get deleted?*/
 #loginForm{
     display: none;
 }
 
 #cancel, #login{
-    margin-top: 70px;
     margin-bottom: 20px;
 }
+
 
 /* SHOOTING STARS */
 section{
