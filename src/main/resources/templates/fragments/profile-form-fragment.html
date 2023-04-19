@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <title>Profile-form</title>
     <link rel="stylesheet" href="../../static/css/overview.css">
+    <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </head>
 <body>
-    <form class="profile-form-fragment">
-        <a th:href="@{/overview.html}"><button class="button-30">Overview</button></a>
-        <a th:href="@{/profile}"><button class="button-30">Profile</button></a>
-        <a th:href="@{/footer-fragment.html#about-us}">About Us</a>
-        <a th:href="@{/footer-fragment.html#privacy-policy}">Privacy Policy</a>
-        <a th:href="@{/footer-fragment.html#faq}">FAQ</a>
-        <a th:href="@{/footer-fragment.html#contact-us}">Contact Us</a>
-        <div class="logout">
-            <td><a th:href="@{/logout}"><button class="button-30">Logout</button></a></td>
+    <div th:fragment="profile-popup" class="profile-popup">
+        <div class="form-profile-row1">
+            <button class="button-30">Close</button>
         </div>
-    </form>
-    <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+        <div class="form-profile-row2">
+            <a class="name" th:href="@{/overview}">Name</a>
+            <a th:href="@{/profile}">Profile</a>
+        </div>
+        <div class="form-profile-row3">
+            <a th:href="@{/footer-fragment.html#about-us}">About Us</a>
+            <a th:href="@{/footer-fragment.html#privacy-policy}">Privacy Policy</a>
+            <a th:href="@{/footer-fragment.html#faq}">FAQ</a>
+            <a th:href="@{/footer-fragment.html#contact-us}">Contact Us</a>
+        </div>
+        <div class="form-profile-row4">
+            <a th:href="@{/logout}"><button class="button-30">Logout</button></a>
+        </div>
+    </div>
 </body>
 </html>

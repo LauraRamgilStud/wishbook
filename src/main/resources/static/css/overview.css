@@ -201,27 +201,47 @@ input {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-<<<<<<< HEAD
     margin: 2rem;
-}
-=======
-    margin-top: 2rem;
 }
 
 /*PROFILE-FORM-FRAGMENT*/
-.profile-form-fragment {
-    position: absolute;
+.profile-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    height: 100vh;
+    position: fixed;
     top: 0;
     right: 0;
-    min-width: 25rem;
-    min-height: 25rem;
-    background-color: var(--bg-color);
+    background: #D28DAC;
     box-shadow: var(--primary-shadow);
-    backdrop-filter: var(--backdrop);
-    -webkit-backdrop-filter: blur(9px);
-    border: var(--border);
-    border-radius: 10px;
-    z-index: 10;
+    z-index: 999;
 }
 
->>>>>>> 968d741b22bd5fe98417fd70c461a66f7df2ea2e
+.form-profile-row1 {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/*
+.form-profile-row1 {
+    margin-top: 10px;
+    margin-right: 10px;
+
+}
+
+.form-profile-row2, .form-profile-row3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-profile-row2 a{
+    border: black 2px solid;
+    padding: 1rem;
+}*/
+
+
