@@ -14,7 +14,7 @@
     margin: 0 1rem 2rem 1rem;
 }
 
-.back-arrow-img {
+.left-arrow-img {
     height: 0.8rem;
     margin-right: 1rem;
 }
@@ -178,6 +178,10 @@
     display: none;
 }
 
+#profile-popup-id {
+    display: none;
+}
+
 .form-container {
     position: fixed;
     top: 50%;
@@ -249,12 +253,15 @@ input {
 }
 
 /*PROFILE-FORM-FRAGMENT*/
+.profile-popup a {
+    color: #551A8B;
+}
+
 .profile-popup {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    width: 25%;
+    width: 30%;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -265,27 +272,75 @@ input {
 }
 
 .form-profile-row1 {
-    display: flex;
-    align-items: flex-end;
+    align-self: end;
+    margin: 1rem 1rem 0 0;
+    height: 5%;
 }
 
-
-/*
-.form-profile-row1 {
-    margin-top: 10px;
-    margin-right: 10px;
-
-}
-
-.form-profile-row2, .form-profile-row3 {
+.form-profile-bottom-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 95%;
 }
 
-.form-profile-row2 a{
-    border: black 2px solid;
+.form-profile-row2, .form-profile-row3{
+    align-self: center;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    align-items: flex-start;
+}
+
+.form-profile-row2 a, .form-profile-row3 a {
+    margin-bottom: 0.5rem;
     padding: 1rem;
-}*/
+    width: 100%;
+}
+
+.form-profile-row2 a {
+    border-radius: 10px;
+    box-shadow: var(--primary-shadow);
+}
+
+.form-profile-row4 {
+    display: flex;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.row2-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+}
+
+.row2-name img {
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: var(--primary-shadow);
+}
+
+.profile-popup-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.right-arrow-img {
+    height: 0.8rem;
+}
 
 
