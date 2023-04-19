@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>WishBook</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{css/home.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
     <!-- Favicons -->
     <link
@@ -19,23 +18,24 @@
     />
 
     <div th:insert="fragments/header-fragment.html"></div>
-  </head>
-  <body>
-  <!-- Hero Section -->
+ </head>
+ <body>
+   <!-- Hero Section -->
  <div class="container">
-     <div class="box" th:insert="fragments/login-fragment.html"></div>
+    <div class="box" th:insert="fragments/login-fragment.html"></div>
  </div>
   <!-- Shooting stars -->
-  <section>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-   </section>
+   <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+     </section>
   </body>
   <footer>
       <div th:insert="fragments/footer-fragment.html"></div>
-   </footer>
-   </html>
+  </footer>
+  <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{css/home.css}"/>
+     </html>

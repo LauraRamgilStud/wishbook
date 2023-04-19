@@ -12,16 +12,18 @@
         <tr>
           <td>Email:</td>
           <td><input type="email" id="email" placeholder="Email" name="email" required></td>
-          <span th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
+          <div th:if="${errorMessage != null}" th:text="${errorMessage}"></div>
         </tr>
         <tr>
           <td>Password:</td>
           <td><input type="password" placeholder="Password" name="password" required></td>
         </tr>
         <tr>
-          <td><input class="button-30" type="submit" value="Login"></td>
-          <td><a href="/register">Don't have an account yet? Sign up!</a></td>
-          <button type="button" class="button-30" onclick="toggleForm()">cancel</button>
+          <td><input id="login" class="button-30" type="submit" value="Login"></td>
+          <td><button id="cancel" type="button" class="button-30" onclick="toggleForm()">cancel</button></td>
+        </tr>
+        <tr>
+          <td><div id="noacc"><a href="/register">Don't have an account yet? Sign up!</a></div></td>
         </tr>
       </table>
     </form>

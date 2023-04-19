@@ -1,11 +1,3 @@
-function openForm() {
-    document.getElementById("loginForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("loginForm").style.display = "none";
-}
-
 function toggleForm() {
     var loginForm = document.getElementById("loginForm");
     var loginButton = document.getElementById("loginButton");
@@ -17,6 +9,10 @@ function toggleForm() {
         loginButton.classList.add("hide");
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("loginForm");
+    form.style.display = "none";
+});
 
 function showMyBooks() {
     document.getElementById("my-books").style.display = "block";
