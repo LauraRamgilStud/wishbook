@@ -251,7 +251,7 @@ input {
 /*PROFILE-FORM-FRAGMENT*/
 .profile-form-fragment {
     position: absolute;
-    top: 10%;
+    top: 0;
     right: 0;
     min-width: 25rem;
     min-height: 25rem;
@@ -261,5 +261,5 @@ input {
     -webkit-backdrop-filter: blur(9px);
     border: var(--border);
     border-radius: 10px;
-    z-index: 100;
+    z-index: 10;
 }
