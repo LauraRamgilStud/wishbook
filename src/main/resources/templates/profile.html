@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh">
     <title>Profile</title>
+    <!-- Favicons -->
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
     <link rel="stylesheet" type="text/css" href="../static/css/profile.css" th:href="@{/css/profile.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
@@ -32,7 +44,7 @@
                     </div>
             </div>
             <picture class="profile-icon">
-                <img src="../static/images/Profile-icon.png" th:src="@{images/Profile-icon.png}" alt="profile picture">
+                <img src="../static/images/Profile-icon.png" th:src="@{images/Profile-icon.png}" alt="">
             </picture>
     </div>
     <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>

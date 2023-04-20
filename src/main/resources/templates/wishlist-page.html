@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Book</title>
+    <!-- Favicons -->
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
     <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
@@ -30,7 +42,7 @@
             <div th:each="wish : ${session.listOfWishes}">
                 <a th:href="@{'/wish-page/'+${wish.getId()}}">
                     <div class="items">
-                        <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="Wish picture" src="">
+                        <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="" src="">
                         <div class="item-info">
                             <span class="item-name" th:text="${wish.getWish_name()}"></span>
                         </div>

@@ -142,6 +142,26 @@
     flex-wrap: wrap;
 }
 
+.wish-top-left-section button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.wish-top-right-section button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.wish-buttons-container button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.form-buttons button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
 /*############################################################*/
 
 /* OVERVIEW-PAGE */
@@ -232,6 +252,11 @@ input {
     justify-content: center;
 }
 
+.form-buttons button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
 .form-header {
     margin-top: 2rem;
     color: #322964;
@@ -273,10 +298,21 @@ input {
 form label {
     color: #322964;
 }
+
+.top-left-section button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.top-right-section button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
 /*############################################################*/
 
 /*PROFILE-FORM-FRAGMENT*/
-.profile-popup a {
+.profile-popup span {
     color: #551A8B;
 }
 
@@ -316,6 +352,21 @@ form label {
     height: 5%;
 }
 
+.form-profile-row1 button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.form-profile-row4 button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.form-profile-row2 a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
 .form-profile-bottom-wrapper {
     display: flex;
     flex-direction: column;
@@ -332,10 +383,15 @@ form label {
     align-items: flex-start;
 }
 
-.form-profile-row2 a, .form-profile-row3 a {
+.form-profile-row2 a, .form-profile-row3 span {
     margin-bottom: 0.5rem;
     padding: 1rem;
     width: 100%;
+}
+
+.form-profile-row3 span:hover {
+    color: #dca8f1;
+    text-decoration:none;
 }
 
 .form-profile-row2 a {
@@ -381,7 +437,4 @@ form label {
 .right-arrow-img {
     height: 0.8rem;
 }
-
-/*############################################################*/
-
 

@@ -3,16 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>Book</title>
-  <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
-  <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
-  <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
-  <div th:insert="fragments/header-loggedIn-fragment.html"></div>
+    <!-- Favicons -->
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
+    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
 </head>
 <body>
 <div class="hero">
   <div class="top-section">
     <div class="wish-top-left-section">
-      <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Wishbook</button></a>
+      <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="" src="../static/images/arrow_left.png">Wishbook</button></a>
     </div>
     <div class="wish-top-right-section">
       <a th:href="@{'/delete-wish/'+${session.wish.getId()}}"><button class="button-30">Delete Wish</button></a>
@@ -20,7 +32,7 @@
   </div>
   <div class="wish-bottom-section">
             <div class="wish-image-container">
-              <img class="wish-img" th:src="'data:image/jpeg;base64,' + ${session.wish.getPicOut()}" alt="Wish picture" src="" >
+              <img class="wish-img" th:src="'data:image/jpeg;base64,' + ${session.wish.getPicOut()}" alt="" src="" >
             </div>
             <div class="wish-info-container">
                 <h3 class="wish-name" th:text="${session.wish.getWish_name()}"></h3>
