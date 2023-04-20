@@ -180,7 +180,8 @@
 
 /*############################################################*/
 
-/* BOOK-PAGE */
+/* SHARED-PAGES */
+
 
 /*############################################################*/
 
@@ -207,6 +208,10 @@
 }
 
 #delete-popup-id {
+    display: none;
+}
+
+#share-link {
     display: none;
 }
 
@@ -281,7 +286,6 @@ input {
 
 .form-buttons {
     display: flex;
-    flex-direction: column;
     width: 100%;
     justify-content: space-evenly;
     margin: 2rem;

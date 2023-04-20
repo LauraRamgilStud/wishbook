@@ -70,6 +70,7 @@ public class WishRepository {
             byte[] wishPic = resultSet.getBytes(7);
             String base64Pic = Base64.getEncoder().encodeToString(wishPic);
             String url = resultSet.getString(8);
+            boolean isReserved = resultSet.getBoolean(9);
             wish.setWish_name(wishName);
             wish.setDescription(description);
             wish.setPrice(price);
@@ -77,6 +78,7 @@ public class WishRepository {
             wish.setUrl(url);
             wish.setPicOut(base64Pic);
             wish.setWish_pic(wishPic);
+            wish.setReserved(isReserved);
 
         }catch (SQLException e){
             System.out.println("Could not find wishlists");
@@ -106,6 +108,29 @@ public class WishRepository {
 
         }catch (SQLException e){
             System.out.println("Could not create wishlist");
+            e.printStackTrace();
+        }
+    }
+
+    public void updateReserved(Wish wish){
+        final String UPDATE_RESERVED = "UPDATE wishbook.wish SET wish_reserved = ? WHERE id = ?";
+
+
+        try{
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_RESERVED);
+
+            //Set parameters
+            preparedStatement.setInt(2, wish.getId());
+            preparedStatement.setBoolean(1, !wish.isReserved());
+
+
+            //execute statement
+            preparedStatement.executeUpdate();
+
+
+        }catch (SQLException e){
+            System.out.println("Could not update wishlist");
             e.printStackTrace();
         }
     }

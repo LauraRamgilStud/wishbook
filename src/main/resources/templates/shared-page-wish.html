@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
+  <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+  <div th:insert="fragments/header-fragment.html"></div>
+</head>
+<body>
+<div class="hero">
+  <div class="top-section">
+    <a th:href="@{'/wishlist/share/'+${session.sharedLinkUser.getId()}+'/'+${session.sharedLinkWishlist.getId()}}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Wishbook</button></a>
+  </div>
+  <div class="wish-bottom-section">
+    <div class="wish-image-container">
+      <img class="wish-img" th:src="'data:image/jpeg;base64,' + ${session.sharedWish.getPicOut()}" alt="Wish picture" src="" >
+    </div>
+    <div class="wish-info-container">
+      <h3 class="wish-name" th:text="${session.sharedWish.getWish_name()}"></h3>
+      <span class="wish-price" th:text="'Price: '+${session.sharedWish.price}"></span>
+      <span class="wish-description" th:text="'Description: '+${session.sharedWish.getDescription()}"></span>
+      <div class="wish-buttons-container">
+        <a th:href="@{/wish-reserved}"><span class="button-30" th:text="${session.sharedWish.isReserved()} ? 'Reserved' : 'Reserve'"></span></a>
+        <a th:href="${session.sharedWish.getUrl()}"><button class="button-30">Go to website</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+</body>
+</html>
