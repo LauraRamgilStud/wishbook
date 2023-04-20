@@ -17,12 +17,15 @@
     --transition: 0.3s;
     --border: 1px solid rgba(255, 255, 255, 0.02);
 }
+/*############################################################*/
+
 /* CSS Resets */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     background: linear-gradient(#8C6CAC 0%, #D28DAC 100%) no-repeat fixed;
     background-size: cover;
@@ -33,9 +36,11 @@ body{
     display: flex;
     flex-direction: column;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 ul {
     list-style-type: none;
 }
@@ -44,6 +49,7 @@ a {
     text-decoration: none;
 }
 /*############################################################*/
+
 /* HEADER */
 nav {
     position: fixed;
@@ -62,32 +68,37 @@ nav {
     border: var(--border);
     width: 100%;
 }
+
 nav h1 {
     color: var(--primary-color);
 }
+
 nav a {
     color: var(--primary-color);
     transition: var(--transition);
 }
+
 nav a:hover {
     color: var(--secondary-color);
     border-bottom: 2px solid var(--secondary-color);
 }
+
 nav ul {
     display: flex;
     gap: 1.9rem;
 }
+
 nav ul li {
     font-weight: var(--bold-font);
 }
+
 nav img {
     height: 70px;
     border-radius: 10px;
 }
-
 /*############################################################*/
-/*!* NEW FOOTER *!*/
 
+/*!* NEW FOOTER *!*/
 .site-footer {
     background-color: var(--bg-color);
     backdrop-filter: var(--backdrop);
@@ -120,50 +131,43 @@ nav img {
     color: #ffffff;
 }
 
-.site-footer a:hover
-{
+.site-footer a:hover {
     color: #dca8f1;
     text-decoration:none;
 }
 
-.footer-links
-{
+.footer-links {
     padding-left:0;
     list-style:none
 }
-.footer-links li
-{
+
+.footer-links li {
     display:block
 }
-.footer-links a
-{
+
+.footer-links a {
     color: #ffffff
 }
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
-{
+
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover {
     color: #dca8f1;
     text-decoration:none;
 }
-.footer-links.inline li
-{
+
+.footer-links.inline li {
     display:inline-block
 }
 
-@media (max-width:991px)
-{
-    .site-footer [class^=footer-col]
-    {
+@media (max-width:991px) {
+    .site-footer [class^=footer-col] {
         margin-bottom:30px
     }
 }
-@media (max-width:767px)
-{
-    .site-footer
-    {
+@media (max-width:767px) {
+    .site-footer {
         padding-bottom:0
     }
 }
-
 /*############################################################*/
 
 /* BUTTONS */
@@ -178,7 +182,7 @@ nav img {
     color: #36395A;
     cursor: pointer;
     display: inline-flex;
-    font-family: "JetBrains Mono",monospace;
+    font-family: var(--font-family);
     height: 48px;
     justify-content: center;
     line-height: 1;
@@ -198,19 +202,23 @@ nav img {
     width: auto;
     font-size: 18px;
 }
+
 .button-30:focus {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
+
 .button-30:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
     transform: translateY(-2px);
     color: var(--secondary-color);
     border-bottom: 2px solid var(--secondary-color);
 }
+
 .button-30:active {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }
+/*############################################################*/
 
 /*INPUT*/
 input{
@@ -221,5 +229,5 @@ input{
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
     box-sizing: border-box;
     color: #36395A;
-    font-family: "JetBrains Mono",monospace;
+    font-family: var(--font-family);
 }

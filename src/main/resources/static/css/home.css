@@ -34,6 +34,7 @@
     justify-content: flex-start;
     position: relative;
 }
+
 .box {
     width: 40rem;
     height: 600px;
@@ -50,6 +51,7 @@
     justify-content: center;
     z-index: 3;
 }
+
 .hero {
     display: flex;
     align-items: center;
@@ -58,6 +60,7 @@
     max-width: 68.75rem;
     margin: auto;
 }
+
 .login {
     width: 25rem;
     padding: 0.625rem;
@@ -83,19 +86,23 @@
 #login{
     left: 60px;
 }
+
 div#noacc {
     left: 80px;
     margin-top: 50px;
     position: relative;
 }
+
 .hide {
     display: none;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     background-image: url("../images/Background.svg");
     background-size: cover;
@@ -106,9 +113,11 @@ body{
     display: flex;
     flex-direction: column;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 ul {
     list-style-type: none;
 }
@@ -117,58 +126,6 @@ a {
     text-decoration: none;
 }
 /*############################################################*/
-/* HEADER */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 80px;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 3.5rem;
-    background: var(--bg-color);
-    box-shadow: var(--primary-shadow);
-    backdrop-filter: var(--backdrop);
-    -webkit-backdrop-filter: blur(9px);
-    border: var(--border);
-    width: 100%;
-}
-nav h1 {
-    color: var(--primary-color);
-}
-nav a {
-    color: var(--primary-color);
-    transition: var(--transition);
-}
-nav ul {
-    display: flex;
-    gap: 1.9rem;
-}
-nav ul li {
-    font-weight: var(--bold-font);
-}
-nav img {
-    height: 80px;
-}
-
-/*############################################################*/
-
-@media (max-width:991px)
-{
-    .site-footer [class^=footer-col]
-    {
-        margin-bottom:30px
-    }
-}
-@media (max-width:767px)
-{
-    .site-footer
-    {
-        padding-bottom:0
-    }
-}
 
 /*FORM*/
 .form-popup {
@@ -200,6 +157,7 @@ section{
     height: 800px;
     animation: animateBg 50s linear infinite;
 }
+
 @keyframes animateBg{
     0%,100%{
         transform: scale(1);
@@ -208,6 +166,7 @@ section{
         transform: scale(1.2);
     }
 }
+
 span{
     position: absolute;
     top:50%;
@@ -219,6 +178,7 @@ span{
     box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
     animation: animate 3s linear infinite;
 }
+
 span::before{
     content:'';
     position: absolute;
@@ -228,23 +188,21 @@ span::before{
     height: 1px;
     background: linear-gradient(90deg,#fff,transparent);
 }
-@keyframes animate
-{
-    0%
-    {
+
+@keyframes animate {
+    0% {
         transform: rotate(315deg) translateX(0);
         opacity: 1;
     }
-    70%
-    {
+    70% {
         opacity: 1;
     }
-    100%
-    {
+    100% {
         transform: rotate(315deg) translateX(-1000px);
         opacity: 0;
     }
 }
+
 span:nth-child(1){
     top: 0;
     right: 0;
@@ -252,6 +210,7 @@ span:nth-child(1){
     animation-delay: 0s;
     animation-duration: 1s;
 }
+
 span:nth-child(2){
     top: 0;
     right: 80px;
@@ -259,6 +218,7 @@ span:nth-child(2){
     animation-delay: 0.2s;
     animation-duration: 1.25s;
 }
+
 span:nth-child(3){
     top: 0;
     right: 110px;
@@ -266,6 +226,7 @@ span:nth-child(3){
     animation-delay: 0.4s;
     animation-duration: 2s;
 }
+
 span:nth-child(4){
     top: 0;
     right: 180px;
@@ -273,6 +234,7 @@ span:nth-child(4){
     animation-delay: 0.6s;
     animation-duration: 1.5s;
 }
+
 span:nth-child(5){
     top: 0;
     right: 400px;
@@ -280,6 +242,7 @@ span:nth-child(5){
     animation-delay: 0.8s;
     animation-duration: 2.5s;
 }
+
 span:nth-child(6){
     top: 0;
     right: 600px;
@@ -287,6 +250,7 @@ span:nth-child(6){
     animation-delay: 1s;
     animation-duration: 1.3s;
 }
+
 span:nth-child(7){
     top: 300px;
     right: 0px;
@@ -294,6 +258,7 @@ span:nth-child(7){
     animation-delay: 1.2s;
     animation-duration: 1.75s;
 }
+
 span:nth-child(8){
     top: 10px;
     right: 400px;
@@ -301,6 +266,7 @@ span:nth-child(8){
     animation-delay: 1.4s;
     animation-duration: 1.25s;
 }
+
 span:nth-child(9){
     top: 0px;
     right: 1000px;
