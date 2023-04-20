@@ -6,29 +6,28 @@
 </head>
 <body>
 <button class="button-30" id="loginButton" onclick="toggleForm(true)">Login</button>
-  <div class="form-popup" id="loginForm" hidden>
+<div class="form-popup" id="loginForm" hidden>
     <form action="/login" th:action="@{/login}" method="POST">
-      <table>
+        <table>
             <tr>
-            <td>Email:</td>
-            <td><input type="email" id="email" placeholder="Email" name="email" required></td>
-            <div th:if="${errorMessage != null}" th:text="${errorMessage}"></div>
+                <td>Email:</td>
+                <td><input type="email" id="email" placeholder="Email" name="email" required></td>
+                <div th:if="${errorMessage != null}" th:text="${errorMessage}"></div>
             </tr>
             <tr>
-            <td>Password:</td>
-            <td><input type="password" placeholder="Password" name="password" required></td>
-          </tr>
-            <tr>
-                <td><button id="login" class="button-30" type="submit" value="login">login</button></td>
-                <td><button id="cancel" class="hide button-30" onclick="toggleForm(false)">cancel</button>
-                </td>
+                <td>Password:</td>
+                <td><input type="password" placeholder="Password" name="password" required></td>
             </tr>
             <tr>
-              <td><div id="noacc"><a href="/register">Don't have an account yet? Sign up!</a></div></td>
+                <td><input id="login" class="button-30" type="submit" value="Login"></td>
+                <td><button id="cancel" type="button" class="button-30" onclick="toggleForm(false)">cancel</button></td>
             </tr>
-      </table>
+            <tr>
+                <td><div id="noacc"><a href="/register">No account yet? Sign up!</a></div></td>
+            </tr>
+        </table>
     </form>
-  </div>
+</div>
 </body>
 <script type="text/javascript" th:src="@{/javaScript/script.js}"></script>
 </html>

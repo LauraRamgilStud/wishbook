@@ -45,29 +45,19 @@
     width: 300px;
     margin-bottom: 20px;
     left: 150px;
-    justify-content: center;
 }
 
 #login{
-    left: 150px;
-    justify-content: center;
+    left: 60px;
 }
-
-
-#noacc{
-    left: 150px;
+div#noacc {
+    left: 80px;
+    margin-top: 50px;
+    position: relative;
 }
-
-tr{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.hide {
+    display: none;
 }
-td{
-    justify-content: center;
-}
-
-
 * {
     margin: 0;
     padding: 0;
@@ -133,7 +123,9 @@ nav ul li {
 nav img {
     height: 80px;
 }
+
 /*############################################################*/
+
 @media (max-width:991px)
 {
     .site-footer [class^=footer-col]
@@ -148,6 +140,7 @@ nav img {
         padding-bottom:0
     }
 }
+
 /* BUTTONS */
 .button-30 {
     align-items: center;
@@ -191,6 +184,7 @@ nav img {
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
 }
+
 /*FORM*/
 .form-popup {
     display: flex;
@@ -198,28 +192,19 @@ nav img {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    margin: 50px;
     column-gap: 50px;
     border-radius: 5px;
 }
-.form-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-table{
-    justify-content: center;
-    justify-self: center;
-}
 
-/*can maybe get deleted?*/
 #loginForm{
     display: none;
 }
 
 #cancel, #login{
+    margin-top: 70px;
     margin-bottom: 20px;
 }
-
 
 /* SHOOTING STARS */
 section{

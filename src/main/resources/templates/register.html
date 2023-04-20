@@ -1,35 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Create account</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css" th:href="@{css/register.css}"/>
+    <!-- Favicons -->
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <div th:insert="fragments/header-fragment.html"></div>
 </head>
 <body>
 <div th:text="${session.user}"></div>
 <form action="/register" th:action="@{/register}" method="POST">
-  <table>
-    <tr>
-      <td>First name:</td>
-      <td><input type="text" placeholder="First name" name="fname" required></td>
-    </tr>
-    <tr>
-      <td>Last name:</td>
-      <td><input type="text" placeholder="Last name" name="lname" required></td>
-    </tr>
-    <tr>
-      <td>Email:</td>
-      <td><input type="email" id="email" placeholder="Email" name="email" required></td>
-      <span th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type="password" placeholder="Password" name="password" required></td>
-    </tr>
-    <tr>
-      <td><input type="submit" value="Create account"></td>
-      <td><a href="/login">Already have an account?</a></td>
-    </tr>
-  </table>
+<div class="container">
+    <div class="box">
+        <h1 id="registerHeader">REGISTER</h1>
+        <table>
+            <tr>
+              <td>First name:</td>
+              <td><input type="text" id="fname" placeholder="First name" name="fname" required></td>
+            </tr>
+            <tr>
+              <td>Last name:</td>
+              <td><input type="text" id="lname" placeholder="Last name" name="lname" required></td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><input type="email" id="email" placeholder="Email" name="email" required></td>
+              <span th:if="${errorMessage != null}" th:text="${errorMessage}"></span>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" id="password" placeholder="Password" name="password" required></td>
+            </tr>
+        </table>
+        <a href="/">Already have an account?</a>
+        <input type="submit" id="submitButton" class="button-30" value="Create account">
+    </div>
+</div>
 </form>
 </body>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </html>

@@ -75,6 +75,11 @@ public class MainController {
 
         return "redirect:/";
     }
+    @GetMapping("/register")
+    public String registerNUser(){
+        return "register";
+    }
+
 
     @GetMapping("/overview")
     public String showOverviewPage(HttpSession session, Model model){

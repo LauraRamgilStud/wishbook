@@ -1,24 +1,24 @@
-    function toggleForm(isLogin) {
-        var loginForm = document.getElementById("loginForm");
-        var loginButton = document.getElementById("loginButton");
-        var cancelButton = document.getElementById("cancelButton");
+function toggleForm(isLogin) {
+    var loginForm = document.getElementById("loginForm");
+    var loginButton = document.getElementById("loginButton");
+    var cancelButton = document.getElementById("cancel");
 
-        if (isLogin) {
-            if (loginForm.style.display === "block") {
-                loginForm.style.display = "none";
-                loginButton.classList.remove("hide");
-            } else {
-                loginForm.style.display = "block";
-                loginButton.classList.add("hide");
-            }
-            cancelButton.style.display = "inline-block";
-            loginButton.style.display = "none";
-        } else {
+    if (isLogin) {
+        if (loginForm.style.display === "block") {
             loginForm.style.display = "none";
             cancelButton.style.display = "none";
-            loginButton.style.display = "inline-block";
+            loginButton.style.display = "block";
+        } else {
+            loginForm.style.display = "block";
+            cancelButton.style.display = "inline-block";
+            loginButton.style.display = "none";
         }
+    } else {
+        loginForm.style.display = "none";
+        cancelButton.style.display = "none";
+        loginButton.style.display = "block";
     }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var form = document.getElementById("loginForm");
