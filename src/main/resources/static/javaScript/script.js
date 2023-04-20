@@ -80,4 +80,11 @@ function closeProfilePopUp() {
     document.getElementById("profile-popup-id").style.display = "none";
 }
 
+function openDeletePopUp() {
+    document.getElementById("delete-popup-id").style.display = "block";
+}
+
+function closeDeletePopUp() {
+    document.getElementById("delete-popup-id").style.display = "none";
+}
 

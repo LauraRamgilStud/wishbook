@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+</head>
+<body>
+<div th:fragment="delete-popup" class="delete-popup">
+  <div class="deleteForm">
+    <div class="form-buttons">
+      <h1 id="aUsure">Are you sure?</h1>
+      <a th:href="@{/delete-wishlist}" id="sureDeleteButton" class="button-30">Delete Book</a>
+      <button class="button-30" id="sureDeleteCancel" onclick="closeDeletePopUp()">Cancel</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

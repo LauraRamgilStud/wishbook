@@ -25,9 +25,9 @@
         <img alt="Could not render logo" src="../../static/images/icon_wishbook.png" th:src="@{/images/icon_wishbook.png}">
       </a>
     </div>
-    <ul class="nav">
-      <li><a href="#" class="button-30" onclick="openProfilePopUp()">Profile</a></li>
-    </ul>
+    <div class="nav">
+      <img th:src="@{/images/star-profile-icon.svg}" alt="profile" src="" onclick="openProfilePopUp()">
+    </div>
   </nav>
 </header>
 <div id="profile-popup-id" th:insert="fragments/profile-form-fragment.html :: profile-popup"></div>

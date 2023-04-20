@@ -9,7 +9,7 @@
 <body>
     <div th:fragment="profile-popup" class="profile-popup">
         <div class="form-profile-row1">
-            <button class="button-30" onclick="closeProfilePopUp()">Close</button>
+            <button class="button-30" onclick="closeProfilePopUp()">X</button>
         </div>
         <div class="form-profile-bottom-wrapper">
             <div class="form-profile-row2">
@@ -45,5 +45,6 @@
             </div>
         </div>
     </div>
+    <div id="delete-popup-id" th:insert="fragments/delete-fragment.html :: #delete-popup"></div>
 </body>
 </html>

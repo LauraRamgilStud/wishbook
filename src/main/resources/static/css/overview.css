@@ -186,6 +186,10 @@
     display: none;
 }
 
+#delete-popup-id {
+    display: none;
+}
+
 .form-container {
     position: fixed;
     top: 50%;
@@ -220,7 +224,7 @@ input {
     margin: 0.5rem 0;
 }
 
-.update-wishlist-form, .create-wishlist-form, .create-wish-form, .update-wish-form{
+.update-wishlist-form, .create-wishlist-form, .create-wish-form, .update-wish-form .deleteForm{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -252,9 +256,19 @@ input {
 
 .form-buttons {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-evenly;
     margin: 2rem;
+}
+
+#sureDeleteButton, #sureDeleteCancel{
+    width: 200px;
+    margin: 60px;
+}
+#aUsure{
+    margin-left: 50px;
+    margin-bottom: 10px;
 }
 form label {
     color: #322964;
@@ -278,6 +292,22 @@ form label {
     background: #D28DAC;
     box-shadow: var(--primary-shadow);
     z-index: 999;
+}
+
+.delete-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 25rem;
+    min-height: 25rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--primary-shadow);
+    backdrop-filter: blur(20px);
+    /*-webkit-backdrop-filter: blur(9px);*/
+    border: var(--border);
+    border-radius: 10px;
+    z-index: 10;
 }
 
 .form-profile-row1 {
