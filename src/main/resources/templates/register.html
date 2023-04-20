@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Create account</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/register.css" th:href="@{css/register.css}"/>
     <!-- Favicons -->
     <link
             rel="apple-touch-icon"
@@ -17,6 +15,8 @@
             sizes="32x32"
             href="../static/images/favicon.png" th:href="@{images/favicon.png}"
     />
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css" th:href="@{css/register.css}"/>
     <div th:insert="fragments/header-fragment.html"></div>
 </head>
 <body>
@@ -45,7 +45,9 @@
             </tr>
         </table>
         <a href="/">Already have an account?</a>
-        <input type="submit" id="submitButton" class="button-30" value="Create account">
+        <div class="create-account">
+            <input type="submit" id="submitButton" class="button-30" value="Create account">
+        </div>
     </div>
 </div>
 </form>

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+
 </head>
 <body>
-<button class="button-30" id="loginButton" onclick="toggleForm(true)">Login</button>
+<div class="login-button">
+    <button class="button-30" id="loginButton" onclick="toggleForm(true)">Login</button>
+</div>
 <div class="form-popup" id="loginForm" hidden>
     <form action="/login" th:action="@{/login}" method="POST">
         <table>
@@ -18,11 +21,11 @@
                 <td>Password:</td>
                 <td><input type="password" placeholder="Password" name="password" required></td>
             </tr>
-            <tr>
+            <tr class="cancel-button">
                 <td><input id="login" class="button-30" type="submit" value="Login"></td>
                 <td><button id="cancel" type="button" class="button-30" onclick="toggleForm(false)">cancel</button></td>
             </tr>
-            <tr>
+            <tr class="no-account">
                 <td><div id="noacc"><a href="/register">No account yet? Sign up!</a></div></td>
             </tr>
         </table>

@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh">
     <title>Overview</title>
+    <!-- Favicons -->
+    <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
+    <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+    />
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{css/overview.css}"/>
     <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{javaScript/script.js}"></script>
@@ -33,7 +45,7 @@
                     <div th:each="wishlist : ${session.wishlistLists}">
                         <a th:href="@{'/wishlist-page/'+${wishlist.getId()}}">
                         <div class="items">
-                            <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wishlist.getPicOut()}" alt="Wishlist cover picture" src="">
+                            <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wishlist.getPicOut()}" alt="" src="">
                             <div class="item-info">
                                 <span class="item-name" th:text="${wishlist.getList_name()}"></span>
                             </div>

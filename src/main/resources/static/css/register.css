@@ -63,3 +63,13 @@ h1{
     margin: 20px;
     color: #322964;
 }
+
+.create-account input:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.box a:hover {
+    color: #dca8f1;
+    text-decoration:none;
+}

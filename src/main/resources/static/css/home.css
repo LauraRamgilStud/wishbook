@@ -47,6 +47,26 @@
     left: 150px;
 }
 
+.login-button button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.cancel-button input:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.cancel-button button:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.no-account a:hover {
+    color: #dca8f1;
+    text-decoration:none;
+}
+
 #login{
     left: 60px;
 }
