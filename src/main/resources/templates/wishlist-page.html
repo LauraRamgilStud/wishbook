@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
     <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
-    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
+    <div th:insert="fragments/all-fragments :: header-loggedIn"></div>
 </head>
 <body>
 <section class="hero">
@@ -52,12 +52,12 @@
             </div>
         </div>
     </section>
-    <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
-    <div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
-    <div id="delete-wishlist-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-wishlist-popup"></div>
+    <div class="form-container" id="edit-book-form" th:insert="fragments/all-fragments :: update-wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
+    <div class="form-container" id="create-wish-form" th:insert="fragments/all-fragments :: create-wish"></div>
+    <div id="delete-wishlist-id" class="delete-popup-container" th:insert="fragments/all-fragments :: delete-wishlist-popup"></div>
 </section>
 <span id="share-link" th:text="'localhost:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
-<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+<footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
 </body>
 </html>
 

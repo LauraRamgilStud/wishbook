@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="../static/css/profile.css" th:href="@{/css/profile.css}">
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
-    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
+    <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+    <div th:insert="fragments/all-fragments :: header-loggedIn"></div>
 </head>
 <body>
     <div class="profile-wrapper">
@@ -46,7 +47,7 @@
                 <img src="../static/images/Profile-icon.png" th:src="@{images/Profile-icon.png}" alt="">
             </picture>
     </div>
-    <div id="delete-profile-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-profile-popup"></div>
-    <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+    <div id="delete-profile-id" class="delete-popup-container" th:insert="fragments/all-fragments :: delete-profile-popup"></div>
+    <footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
 </body>
 </html>

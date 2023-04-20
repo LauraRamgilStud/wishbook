@@ -16,7 +16,7 @@
             href="../static/images/favicon.png" th:href="@{images/favicon.png}"
     />
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
-    <div th:insert="fragments/header-fragment.html"></div>
+    <div th:insert="fragments/all-fragments :: header"></div>
  </head>
  <body>
    <!-- Hero Section -->
@@ -37,6 +37,6 @@
     <span></span>
    </section>
   </body>
-<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+<footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
   <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{css/home.css}"/>
 </html>

@@ -69,7 +69,7 @@ nav a {
     color: var(--primary-color);
     transition: var(--transition);
 }
-nav a:hover {
+.nav a:hover {
     color: var(--secondary-color);
     border-bottom: 2px solid var(--secondary-color);
 }

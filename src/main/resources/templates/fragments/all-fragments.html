@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+</head>
+<body>
+
+<form th:fragment="create-wish" class="create-wish-form" action="/create-wish" th:action="@{/create-wish}" method="POST" enctype="multipart/form-data">
+  <h4 class="form-header">Add new Wish</h4>
+  <div class="form-top-wish">
+    <div class="form-top-col1">
+      <label for="wish-name">Name:</label>
+      <input type="text" id="wish-name" placeholder="Name your Wish" name="wish-name" required>
+      <label for="description">Description:</label>
+      <input type="text" id="description" placeholder="Description" name="description">
+      <label for="price">Price:</label>
+      <input type="text" id="price" placeholder="Price" name="price">
+    </div>
+    <div class="form-top-col2">
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" placeholder="Quantity" name="quantity">
+      <label for="url">Link:</label>
+      <input type="url" id="url" placeholder="Link" name="url">
+      <label for="wish-pic">Wish picture:</label>
+      <input type="file" id="wish-pic" placeholder="Add a picture" name="wish-pic">
+    </div>
+  </div>
+  <div class="form-buttons">
+    <button class="button-30" type="submit" onclick="closeCreateWishForm()">Create Wish</button>
+    <button class="button-30" onclick="closeCreateWishForm()">Cancel</button>
+  </div>
+</form>
+
+<form th:fragment="create-wishlist" class="create-wishlist-form" action="/create-wishlist" th:action="@{/create-wishlist}" method="POST" enctype="multipart/form-data">
+  <h2 class="form-header">Add New Wishlist</h2>
+  <div class="form-top">
+    <label for="list-name">Name:</label>
+    <input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" required>
+    <label for="occasion">Occasion:</label>
+    <input type="text" id="occasion" placeholder="Whats the occasion?" name="occasion">
+    <label for="cover-pic">Cover picture:</label>
+    <input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic">
+  </div>
+  <div class="form-buttons">
+    <button class="button-30" type="submit" onclick="closeCreateBookForm()">Create</button>
+    <button class="button-30" onclick="closeCreateBookForm()">Cancel</button>
+  </div>
+</form>
+
+<div th:fragment="delete-profile-popup" class="delete-popup">
+  <h1 class="form-header">Are you sure?</h1>
+  <div class="form-buttons">
+    <a th:href="@{/delete-user}" class="sureDeleteButton button-30">Delete Profile</a>
+    <button class="sureDeleteCancel button-30" onclick="closeDeleteProfilePopUp()">Cancel</button>
+  </div>
+</div>
+
+<div th:fragment="delete-wishlist-popup" class="delete-popup">
+  <h1 class="form-header">Are you sure?</h1>
+  <div class="form-buttons">
+    <a th:href="@{/delete-wishlist}" class="sureDeleteButton button-30"> Delete WishBook</a>
+    <button class="sureDeleteCancel button-30" onclick="closeDeleteWishlistPopUp()">Cancel</button>
+  </div>
+</div>
+
+<div th:fragment="delete-wish-popup" class="delete-popup">
+  <h1 class="form-header">Are you sure?</h1>
+  <div class="form-buttons">
+    <a th:href="@{/delete-wish}" class="sureDeleteButton button-30">Delete Wish</a>
+    <button class="sureDeleteCancel button-30" onclick="closeDeleteWishPopUp()">Cancel</button>
+  </div>
+</div>
+
+<div th:fragment="footer" class="footer-container">
+  <div class="footer-row">
+    <div class="footer-col1 footer-col">
+      <h6>About</h6>
+      <p>THE GOAL IS TO MAKE</p>
+      <p>PEOPLE'S WISHES COME TRUE</p>
+    </div>
+    <div class="footer-col2 footer-col">
+      <h6>WishBook</h6>
+      <ul class="footer-links">
+        <li id="about-us"><a>About Us</a></li>
+        <li id="privacy-policy"><a>Private Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col3 footer-col">
+      <h6>Get Help</h6>
+      <ul class="footer-links">
+        <li id="faq"><a>FAQ</a></li>
+        <li id="contact-us"><a>Contact Us</a></li>
+        <li>Email: contact@wishbook.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="header-loggedIn">
+  <header>
+    <nav>
+      <div class="logo">
+        <a th:href="@{/overview}">
+          <img alt="Could not render logo" src="../../static/images/icon_wishbook.png" th:src="@{/images/icon_wishbook.png}">
+        </a>
+      </div>
+      <div class="nav">
+        <img th:src="@{/images/star-profile-icon.svg}" alt="profile" src="" onclick="openProfilePopUp()">
+      </div>
+    </nav>
+  </header>
+  <div id="profile-popup-id" th:insert="fragments/all-fragments :: profile-popup"></div>
+</div>
+
+<nav th:fragment="header">
+  <div class="logo">
+    <a th:href="@{/}">
+      <img alt="Could not render logo" src="../../static/images/icon_wishbook.png" th:src="@{/images/icon_wishbook.png}">
+    </a>
+  </div>
+  <ul class="nav">
+    <li><a href="/" class="button-30" onclick="toggleForm(true)">Login</a></li>
+    <li><a href="/register" class="button-30">Register</a></li>
+  </ul>
+</nav>
+
+<div th:fragment="profile-popup" class="profile-popup">
+  <div class="form-profile-row1">
+    <button class="button-30" onclick="closeProfilePopUp()">X</button>
+  </div>
+  <div class="form-profile-bottom-wrapper">
+    <div class="form-profile-row2">
+      <a class="row2-name" th:href="@{/overview}">
+        <img th:src="@{/images/star-profile-icon.svg}" alt="profile" src="">
+        <div class="name">
+          <h3 th:text="${session.user.getFname()}"></h3>
+          <span th:text="${session.user.getEmail()}"></span>
+        </div>
+      </a>
+      <a th:href="@{/profile}">Profile</a>
+    </div>
+    <div class="form-profile-row3">
+      <div class="profile-popup-links">
+        <span>About Us</span>
+        <img class="right-arrow-img" th:src="@{/images/arrow-right.svg}" alt="" src="">
+      </div>
+      <div class="profile-popup-links">
+        <span>Privacy Policy</span>
+        <img class="right-arrow-img" th:src="@{/images/arrow-right.svg}" alt="" src="">
+      </div>
+      <div class="profile-popup-links">
+        <span>FAQ</span>
+        <img class="right-arrow-img" th:src="@{/images/arrow-right.svg}" alt="" src="">
+      </div>
+      <div class="profile-popup-links">
+        <span>Contact Us</span>
+        <img class="right-arrow-img" th:src="@{/images/arrow-right.svg}" alt="" src="">
+      </div>
+    </div>
+    <div class="form-profile-row4">
+      <a th:href="@{/logout}"><button class="button-30">Logout</button></a>
+    </div>
+  </div>
+</div>
+
+<form th:fragment="update-wish (id, name, description, price, quantity, url)" class="update-wish-form" action="/update-wish" th:action="@{/update-wish}" method="POST" enctype="multipart/form-data">
+  <h2 class="form-header">Update Wish</h2>
+  <div class="form-top-wish">
+    <div class="form-top-col1">
+      <label for="wish-name">Name:</label>
+      <input type="text" id="wish-name" placeholder="Name your Wish" name="wish-name" th:value="${name}">
+      <label for="description">Occasion:</label>
+      <input type="text" id="description" placeholder="Description" name="description" th:value="${description}">
+      <label for="price">Price:</label>
+      <input type="text" id="price" placeholder="Price" name="price" th:value="${price}">
+    </div>
+    <div class="form-top-col2">
+      <label for="quantity">Quantity:</label>
+      <input type="text" id="quantity" placeholder="Quantity" name="quantity" th:value="${quantity}">
+      <label for="url">Link:</label>
+      <input type="url" id="url" placeholder="Link" name="url" th:value="${url}">
+      <label for="wish-pic">Wish picture:</label>
+      <input type="file" id="wish-pic" placeholder="Add a picture" name="wish-pic">
+    </div>
+  </div>
+  <div class="form-buttons">
+    <button class="button-30" type="submit" onclick="closeEditWishForm()">Update Wish</button>
+    <button class="button-30" onclick="closeEditWishForm()">Cancel</button>
+  </div>
+</form>
+
+<form th:fragment="update-wishlist (id, name, occasion)" class="update-wishlist-form" action="/update-wishlist" th:action="@{/update-wishlist}" method="POST" enctype="multipart/form-data">
+  <h2 class="form-header">Update wishlist</h2>
+  <div class="form-top">
+    <label for="list-name">Name:</label>
+    <input type="text" id="list-name" placeholder="Name your wishlist" name="list-name" th:value="${name}">
+    <label for="occasion">Occasion:</label>
+    <input type="text" id="occasion" placeholder="Whats the occasion?" name="occasion" th:value="${occasion}">
+    <label for="cover-pic">Cover picture:</label>
+    <input type="file" id="cover-pic" placeholder="Add a cover picture?" name="cover-pic">
+  </div>
+  <div class="form-buttons">
+    <button class="button-30" type="submit" onclick="closeEditBookForm()">Submit</button>
+    <button class="button-30" type="button" onclick="closeEditBookForm()">Cancel</button>
+  </div>
+</form>
+
+</body>
+</html>

@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
     <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
-    <div th:insert="fragments/header-loggedIn-fragment.html"></div>
+    <div th:insert="fragments/all-fragments :: header-loggedIn"></div>
 </head>
 <body>
 <div class="hero">
@@ -45,8 +45,8 @@
             </div>
   </div>
 </div>
-<div class="form-container" id="edit-wish-form" th:insert="fragments/update-wish-form-fragment :: wish (id=${session.wish.getId()}, name=${session.wish.getWish_name()}, description=${session.wish.getDescription()}, price=${session.wish.getPrice()}, quantity=${session.wish.getQuantity()}, url=${session.wish.getUrl()})"></div>
-<div id="delete-wish-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-wish-popup"></div>
-<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+<div class="form-container" id="edit-wish-form" th:insert="fragments/all-fragments :: update-wish (id=${session.wish.getId()}, name=${session.wish.getWish_name()}, description=${session.wish.getDescription()}, price=${session.wish.getPrice()}, quantity=${session.wish.getQuantity()}, url=${session.wish.getUrl()})"></div>
+<div id="delete-wish-id" class="delete-popup-container" th:insert="fragments/all-fragments :: delete-wish-popup"></div>
+<footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
 </body>
 </html>

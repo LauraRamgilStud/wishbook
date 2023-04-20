@@ -16,10 +16,10 @@
           sizes="32x32"
           href="../static/images/favicon.png" th:href="@{images/favicon.png}"
   />
-  <th:block th:insert="fragments/header-fragment.html"></th:block>
   <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
   <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
   <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+  <div th:insert="fragments/all-fragments :: header"></div>
 </head>
 <body>
 <div class="hero">
@@ -41,6 +41,6 @@
     </div>
   </div>
 </div>
-<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+<footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
 </body>
 </html>

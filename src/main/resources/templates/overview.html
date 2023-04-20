@@ -21,7 +21,7 @@
     <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{javaScript/script.js}"></script>
 </head>
 <body>
-    <header th:insert="fragments/header-loggedIn-fragment.html"></header>
+    <header th:insert="fragments/all-fragments :: header-loggedIn"></header>
     <div class="hero">
         <div class="top-section section-style">
             <div class="top-left-section">
@@ -58,8 +58,8 @@
                 <h2 class="bottom-header">Books Following</h2>
             </div>
         </div>
-        <div class="form-container" id="create-book-form" th:insert="fragments/create-wishlist-form-fragment"></div>
     </div>
-    <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+    <div class="form-container" id="create-book-form" th:insert="fragments/all-fragments :: create-wishlist"></div>
+    <footer class="site-footer" th:insert="fragments/all-fragments  :: footer"></footer>
 </body>
 </html>
