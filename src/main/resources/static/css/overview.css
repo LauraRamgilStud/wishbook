@@ -94,10 +94,9 @@
     width: 3rem;
     height: 3rem;
 }
-
 /*############################################################*/
-/*WISH-PAGE*/
 
+/*WISH-PAGE*/
 .wish-bottom-section {
     display: flex;
     justify-content: space-evenly;
@@ -141,11 +140,9 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-
 /*############################################################*/
 
 /* OVERVIEW-PAGE */
-
 #all-books {
     display: block;
 }
@@ -157,16 +154,12 @@
 #my-books {
     display: block;
 }
-
 /*############################################################*/
 
 /* SHARED-PAGES */
-
-
 /*############################################################*/
 
 /* EDIT-BOOK-POPUP-FORM */
-
 #edit-book-form {
     display: none;
 }
@@ -299,7 +292,6 @@ input {
 form label {
     color: #322964;
 }
-
 /*############################################################*/
 
 /*PROFILE-FORM-FRAGMENT*/
@@ -344,7 +336,7 @@ form label {
     height: 95%;
 }
 
-.form-profile-row2, .form-profile-row3{
+.form-profile-row2, .form-profile-row3 {
     align-self: center;
     width: 80%;
     display: flex;

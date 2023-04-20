@@ -30,10 +30,9 @@
     position: absolute;
     top: 24%;
     left: 11%;
-    z-index: 11;
+    z-index: 5;
     box-shadow: var(--primary-shadow);
 }
-
 
 .profile_container {
     height: 100vh;
@@ -47,7 +46,6 @@
     margin: 25rem 0 5rem 0;
     font-family: var(--font-family);
     border-radius: 10px;
-    /* other styles */
     background-color: var(--bg-color);
     backdrop-filter: var(--backdrop);
     -webkit-backdrop-filter: blur(9px);
