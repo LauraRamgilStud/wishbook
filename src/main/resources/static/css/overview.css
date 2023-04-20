@@ -142,26 +142,6 @@
     flex-wrap: wrap;
 }
 
-.wish-top-left-section button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.wish-top-right-section button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.wish-buttons-container button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.form-buttons button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
 /*############################################################*/
 
 /* OVERVIEW-PAGE */
@@ -207,7 +187,15 @@
     display: none;
 }
 
-#delete-popup-id {
+#delete-profile-id {
+    display: none;
+}
+
+#delete-wishlist-id {
+    display: none;
+}
+
+#delete-wish-id {
     display: none;
 }
 
@@ -222,6 +210,20 @@
     transform: translate(-50%, -50%);
     min-width: 25rem;
     min-height: 25rem;
+    background-color: var(--bg-color);
+    box-shadow: var(--primary-shadow);
+    backdrop-filter: var(--secondary-backdrop);
+    -webkit-backdrop-filter: blur(9px);
+    border: var(--border);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.delete-popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: var(--bg-color);
     box-shadow: var(--primary-shadow);
     backdrop-filter: var(--secondary-backdrop);
@@ -257,11 +259,6 @@ input {
     justify-content: center;
 }
 
-.form-buttons button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
 .form-header {
     margin-top: 2rem;
     color: #322964;
@@ -291,26 +288,16 @@ input {
     margin: 2rem;
 }
 
-#sureDeleteButton, #sureDeleteCancel{
+.sureDeleteButton, .sureDeleteCancel{
     width: 200px;
     margin: 60px;
 }
-#aUsure{
+.aUsure{
     margin-left: 50px;
     margin-bottom: 10px;
 }
 form label {
     color: #322964;
-}
-
-.top-left-section button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.top-right-section button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
 }
 
 /*############################################################*/
@@ -335,35 +322,15 @@ form label {
 }
 
 .delete-popup{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 25rem;
-    min-height: 25rem;
-    background-color: var(--bg-color);
-    box-shadow: var(--primary-shadow);
-    backdrop-filter: blur(20px);
-    /*-webkit-backdrop-filter: blur(9px);*/
-    border: var(--border);
-    border-radius: 10px;
-    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-profile-row1 {
     align-self: end;
     margin: 1rem 1rem 0 0;
     height: 5%;
-}
-
-.form-profile-row1 button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.form-profile-row4 button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
 }
 
 .form-profile-row2 a:hover {

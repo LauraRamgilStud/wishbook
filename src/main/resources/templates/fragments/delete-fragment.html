@@ -6,14 +6,28 @@
   <script type="text/javascript" src="../../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
 </head>
 <body>
-<div th:fragment="delete-popup" class="delete-popup">
-<div class="deleteForm">
+<div th:fragment="delete-profile-popup" class="delete-popup">
+  <h1 class="form-header">Are you sure?</h1>
   <div class="form-buttons">
-    <h1 id="aUsure">Are you sure?</h1>
-    <a th:href="@{/delete-user}" id="sureDeleteButton" class="button-30">Delete Profile</a>
-    <button class="button-30" id="sureDeleteCancel" onclick="closeDeletePopUp()">Cancel</button>
+    <a th:href="@{/delete-user}" class="sureDeleteButton button-30">Delete Profile</a>
+    <button class="sureDeleteCancel button-30" onclick="closeDeleteProfilePopUp()">Cancel</button>
   </div>
 </div>
+
+<div th:fragment="delete-wishlist-popup" class="delete-popup">
+    <h1 class="form-header">Are you sure?</h1>
+    <div class="form-buttons">
+      <a th:href="@{/delete-wishlist}" class="sureDeleteButton button-30"> Delete WishBook</a>
+      <button class="sureDeleteCancel button-30" onclick="closeDeleteWishlistPopUp()">Cancel</button>
+    </div>
+</div>
+
+<div th:fragment="delete-wish-popup" class="delete-popup">
+  <h1 class="form-header">Are you sure?</h1>
+    <div class="form-buttons">
+      <a th:href="@{/delete-wish}" class="sureDeleteButton button-30">Delete Wish</a>
+      <button class="sureDeleteCancel button-30" onclick="closeDeleteWishPopUp()">Cancel</button>
+    </div>
 </div>
 </body>
 </html>

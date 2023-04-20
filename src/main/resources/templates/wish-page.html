@@ -27,7 +27,7 @@
       <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="" src="../static/images/arrow_left.png">Wishbook</button></a>
     </div>
     <div class="wish-top-right-section">
-      <a th:href="@{'/delete-wish/'+${session.wish.getId()}}"><button class="button-30">Delete Wish</button></a>
+      <button class="button-30" onclick="openDeleteWishPopUp()">Delete Wish</button>
     </div>
   </div>
   <div class="wish-bottom-section">
@@ -46,6 +46,7 @@
   </div>
 </div>
 <div class="form-container" id="edit-wish-form" th:insert="fragments/update-wish-form-fragment :: wish (id=${session.wish.getId()}, name=${session.wish.getWish_name()}, description=${session.wish.getDescription()}, price=${session.wish.getPrice()}, quantity=${session.wish.getQuantity()}, url=${session.wish.getUrl()})"></div>
+<div id="delete-wish-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-wish-popup"></div>
 <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
 </html>

@@ -84,13 +84,3 @@
     justify-content: space-between;
     margin-top: 1rem;
 }
-
-.administration-buttons button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}
-
-.edit-profile-form button:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-}

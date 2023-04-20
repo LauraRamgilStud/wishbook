@@ -36,8 +36,7 @@
                     </form>
                     <div class="administration">
                             <div class="administration-buttons">
-                                <button class="button-30" onclick="openDeletePopUp()">delete profile</button>
-                                    <div id="delete-popup-id" class="box" th:insert="fragments/delete-fragment.html"></div>
+                                <button class="button-30" onclick="openDeleteProfilePopUp()">delete profile</button>
                                 <a th:href="@{/logout}"><button class="button-30">Logout</button></a>
 
                             </div>
@@ -47,6 +46,7 @@
                 <img src="../static/images/Profile-icon.png" th:src="@{images/Profile-icon.png}" alt="">
             </picture>
     </div>
+    <div id="delete-profile-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-profile-popup"></div>
     <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
 </html>

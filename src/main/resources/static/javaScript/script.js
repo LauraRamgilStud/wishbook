@@ -80,13 +80,30 @@ function closeProfilePopUp() {
     document.getElementById("profile-popup-id").style.display = "none";
 }
 
-function openDeletePopUp() {
-    document.getElementById("delete-popup-id").style.display = "block";
+function openDeleteProfilePopUp() {
+    document.getElementById("delete-profile-id").style.display = "block";
 }
 
-function closeDeletePopUp() {
-    document.getElementById("delete-popup-id").style.display = "none";
+function closeDeleteProfilePopUp() {
+    document.getElementById("delete-profile-id").style.display = "none";
 }
+
+function openDeleteWishlistPopUp() {
+    document.getElementById("delete-wishlist-id").style.display = "block";
+}
+
+function closeDeleteWishlistPopUp() {
+    document.getElementById("delete-wishlist-id").style.display = "none";
+}
+
+function openDeleteWishPopUp() {
+    document.getElementById("delete-wish-id").style.display = "block";
+}
+
+function closeDeleteWishPopUp() {
+    document.getElementById("delete-wish-id").style.display = "none";
+}
+
 function copyToClipboard() {
     // Get the value of the href attribute of the link element
     let link = document.getElementById("share-link").textContent;

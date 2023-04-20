@@ -258,18 +258,19 @@ public class MainController {
         return "redirect:/";
     }
 
-    @GetMapping("/delete-wishlist/{wishlistID}")
-    public String deleteWishbook(@PathVariable("wishlistID") int id){
-        wishListRepository.deleteWishListByID(id);
+    @GetMapping("/delete-wishlist")
+    public String deleteWishlist(HttpSession session){
+        WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
+        wishListRepository.deleteWishListByID(wishList.getId());
 
         return "redirect:/overview";
     }
 
-    @GetMapping("/delete-wish/{wishID}")
-    public String deleterWish(@PathVariable("wishID") int id,
-                              HttpSession session){
+    @GetMapping("/delete-wish")
+    public String deleterWish(HttpSession session){
         WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
-        wishRepository.deleteWishByID(id);
+        Wish wish = (Wish) session.getAttribute("wish");
+        wishRepository.deleteWishByID(wish.getId());
         return "redirect:/wishlist-page/"+wishList.getId();
     }
 

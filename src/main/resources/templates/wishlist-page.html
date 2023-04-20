@@ -27,8 +27,9 @@
             <a th:href="@{/overview}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="" src="">Overview</button></a>
         </div>
         <div class="top-right-section">
+            <button class="button-30" onclick="copyToClipboard()">Copy link to clipboard</button>
             <button class="button-30" onclick="openEditBookForm()">Edit Book</button>
-            <a th:href="@{'/delete-wishlist/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30">Delete Book</button></a>
+            <button class="button-30" onclick="openDeleteWishlistPopUp()">Delete Book</button>
         </div>
     </section>
 
@@ -50,12 +51,12 @@
                 </a>
             </div>
         </div>
-        <span id="share-link" th:text="'localhost:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
-        <button onclick="copyToClipboard()">Copy to clipboard</button>
     </section>
     <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
     <div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
+    <div id="delete-wishlist-id" class="delete-popup-container" th:insert="fragments/delete-fragment :: delete-wishlist-popup"></div>
 </section>
+<span id="share-link" th:text="'localhost:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
 <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
 </html>
