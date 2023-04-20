@@ -38,6 +38,37 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping("/wishlist/share/{userID}/{wishlistID}")
+    public String sharedWishlistPage(@PathVariable("userID") int userID,
+                                 @PathVariable("wishlistID") int wishlistID,
+                                 HttpSession session){
+        User user = userRepository.findUserByID(userID);
+        WishList wishList = wishListRepository.getWishlistByIDAndUserID(wishlistID, userID);
+        List<Wish> listOfWishes = wishRepository.getWishesByWishlistID(wishList.getId());
+        session.setAttribute("sharedLinkUser", user);
+        session.setAttribute("sharedLinkWishlist", wishList);
+        session.setAttribute("sharedLinkListOfWishes", listOfWishes);
+
+        return "shared-page-wishlist";
+    }
+
+    @GetMapping("/wishlist/share/{wishID}")
+    public String sharedWishPage(@PathVariable("wishID") int wishID,
+                           HttpSession session){
+
+        Wish wish = wishRepository.getWishByID(wishID);
+        session.setAttribute("sharedWish", wish);
+        return "shared-page-wish";
+    }
+
+    @GetMapping("/wish-reserved")
+    public String reserveWish(HttpSession session){
+        Wish wish = (Wish) session.getAttribute("sharedWish");
+        wishRepository.updateReserved(wish);
+
+        return "redirect:/wishlist/share/"+wish.getId();
+    }
+
     //POST MAPPING FOR USER LOGIN
     @PostMapping("/login")
     public String login(@RequestParam("email") String email,

@@ -14,6 +14,8 @@ public class Wish {
     private String picOut;
     private String url;
 
+    private boolean reserved;
+
     public Wish() {
     }
 
@@ -107,5 +109,13 @@ public class Wish {
 
     public void setPicOut(String picOut) {
         this.picOut = picOut;
+    }
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
     }
 }

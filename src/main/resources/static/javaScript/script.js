@@ -80,4 +80,21 @@ function closeProfilePopUp() {
     document.getElementById("profile-popup-id").style.display = "none";
 }
 
+function openDeletePopUp() {
+    document.getElementById("delete-popup-id").style.display = "block";
+}
+
+function closeDeletePopUp() {
+    document.getElementById("delete-popup-id").style.display = "none";
+}
+function copyToClipboard() {
+    // Get the value of the href attribute of the link element
+    let link = document.getElementById("share-link").textContent;
+    // Copy the link to the clipboard
+    navigator.clipboard.writeText(link).then(function() {
+        console.log("Link copied to clipboard successfully!");
+    }, function() {
+        console.error("Failed to copy link to clipboard!");
+    });
+}
 

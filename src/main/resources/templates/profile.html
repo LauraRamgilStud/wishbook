@@ -35,10 +35,11 @@
                         <button class="button-30" type="submit">Update Info</button>
                     </form>
                     <div class="administration">
-                            <h2 class="profile-header">Administration</h2>
                             <div class="administration-buttons">
-                                <a th:href="@{/delete-user}"><button class="button-30">Delete Profile</button></a>
+                                <button class="button-30" onclick="openDeletePopUp()">delete profile</button>
+                                    <div id="delete-popup-id" class="box" th:insert="fragments/delete-fragment.html"></div>
                                 <a th:href="@{/logout}"><button class="button-30">Logout</button></a>
+
                             </div>
                     </div>
             </div>
