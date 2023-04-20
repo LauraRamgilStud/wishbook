@@ -408,3 +408,6 @@ form label {
     height: 0.8rem;
 }
 
+.top-section h1, span{
+    color: white;
+}

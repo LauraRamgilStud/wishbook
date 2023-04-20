@@ -2,11 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="refresh">
   <title>Book</title>
+  <!-- Favicons -->
+  <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+  />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="../static/images/favicon.png" th:href="@{images/favicon.png}"
+  />
+  <th:block th:insert="fragments/header-fragment.html"></th:block>
   <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
   <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
   <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
-  <div th:insert="fragments/header-fragment.html"></div>
 </head>
 <body>
 <section class="hero">
