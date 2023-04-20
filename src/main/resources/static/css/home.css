@@ -48,12 +48,16 @@
 }
 
 #login{
-    left: 150px;
+    left: 60px;
 }
-#noacc{
-    left: 150px;
+div#noacc {
+    left: 80px;
+    margin-top: 50px;
+    position: relative;
 }
-
+.hide {
+    display: none;
+}
 * {
     margin: 0;
     padding: 0;
@@ -63,7 +67,7 @@ body{
     background-image: url("../images/Background.svg");
     background-size: cover;
     color: var(--primary-color);
-    overflow: hidden;
+    overflow: scroll;
     font-family: var(--font-family);
     min-height: 100vh;
     display: flex;
@@ -188,6 +192,7 @@ nav img {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    margin: 50px;
     column-gap: 50px;
     border-radius: 5px;
 }

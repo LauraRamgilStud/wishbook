@@ -34,8 +34,6 @@
         <span></span>
      </section>
   </body>
-  <footer>
-      <div th:insert="fragments/footer-fragment.html"></div>
-  </footer>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
   <link rel="stylesheet" type="text/css" href="../static/css/home.css" th:href="@{css/home.css}"/>
-     </html>
+</html>

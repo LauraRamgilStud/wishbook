@@ -9,7 +9,7 @@
 
 .profile-wrapper::after {
     content: "";
-    background-image: url("../images/cover.jpg");
+    background-image: url("../images/banner-placeholder.png");
     background-repeat: no-repeat;
     background-size: cover;
     top: 11%;
@@ -21,8 +21,8 @@
 }
 
 /* Define the styles for the profile picture*/
-.pp img {
-    background-image: url("../images/pp.jpg");
+.profile-icon img {
+    background-image: url("../images/Profile-icon.png");
     background-size: cover;
     width: 150px;
     height: 150px;
@@ -31,6 +31,7 @@
     top: 24%;
     left: 11%;
     z-index: 11;
+    box-shadow: var(--primary-shadow);
 }
 
 
