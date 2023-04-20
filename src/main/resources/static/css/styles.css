@@ -5,11 +5,12 @@
     --bold-font: 700;
     --bolder-font: 900;
     --bg-color: rgba(255, 255, 255, 0.2);
-    --primary-color: #bc5bf1;
+    --primary-color: #8C6CAC;
     --secondary-color: #8436f5;
     --primary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --secondary-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     --backdrop: blur(9px);
+    --secondary-backdrop: blur(150px);
     --bottom-margin: 0.5rem;
     --bottom-margin-2: 1rem;
     --line-height: 1.7rem;

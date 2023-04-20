@@ -134,18 +134,13 @@ public class WishListRepository {
     public void deleteWishListByID(int id){
         //SQL QUERY
         final String DELETE_QUERY = "DELETE FROM wishbook.wishlist WHERE id = ?";
-        final String DELETE_CHILDS_QUERY = "DELETE FROM wishbook.wish WHERE wishlist_id = ?";
         try{
             Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
             //Delete all child elements
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CHILDS_QUERY);
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
 
-            //Delete parent
-            preparedStatement = connection.prepareStatement(DELETE_QUERY);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
         }catch (SQLException e){
             System.out.println("Could not delete product");
             e.printStackTrace();

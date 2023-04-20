@@ -121,12 +121,13 @@ public class WishRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
 
             //Set parameters
-            preparedStatement.setString(2, wish.getWish_name());
-            preparedStatement.setString(3, wish.getDescription());
-            preparedStatement.setString(4, wish.getPrice());
-            preparedStatement.setString(5, wish.getQuantity());
-            preparedStatement.setBytes(6, wish.getWish_pic());
-            preparedStatement.setString(7, wish.getUrl());
+            preparedStatement.setInt(7, wish.getId());
+            preparedStatement.setString(1, wish.getWish_name());
+            preparedStatement.setString(2, wish.getDescription());
+            preparedStatement.setString(3, wish.getPrice());
+            preparedStatement.setString(4, wish.getQuantity());
+            preparedStatement.setBytes(5, wish.getWish_pic());
+            preparedStatement.setString(6, wish.getUrl());
 
             //execute statement
             preparedStatement.executeUpdate();

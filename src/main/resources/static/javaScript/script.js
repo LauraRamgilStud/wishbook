@@ -53,6 +53,14 @@ function closeCreateWishForm() {
     document.getElementById("create-wish-form").style.display = "none";
 }
 
+function openEditWishForm() {
+    document.getElementById("edit-wish-form").style.display = "block";
+}
+
+function closeEditWishForm() {
+    document.getElementById("edit-wish-form").style.display = "none";
+}
+
 function openProfilePopUp() {
     document.getElementById("profile-popup-id").style.display = "block";
 }

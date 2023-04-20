@@ -12,7 +12,7 @@
 <div class="hero">
   <div class="top-section">
     <div class="wish-top-left-section">
-      <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="back-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Wishbook</button></a>
+      <a th:href="@{'/wishlist-page/'+${session.wishlistFromWishlistView.getId()}}"><button class="button-30"><img class="left-arrow-img" th:src="@{/images/arrow_left.png}" alt="nope" src="../static/images/arrow_left.png">Wishbook</button></a>
     </div>
     <div class="wish-top-right-section">
       <a th:href="@{'/delete-wish/'+${session.wish.getId()}}"><button class="button-30">Delete Wish</button></a>
@@ -27,14 +27,13 @@
                 <span class="wish-price" th:text="'Price: '+${session.wish.price}"></span>
                 <span class="wish-description" th:text="'Description: '+${session.wish.getDescription()}"></span>
                 <div class="wish-buttons-container">
-                  <button class="button-30">Edit</button>
+                  <button class="button-30" onclick="openEditWishForm()">Edit</button>
                   <a th:href="${session.wish.getUrl()}"><button class="button-30">Go to website</button></a>
                 </div>
             </div>
   </div>
 </div>
-<div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
-<div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>
+<div class="form-container" id="edit-wish-form" th:insert="fragments/update-wish-form-fragment :: wish (id=${session.wish.getId()}, name=${session.wish.getWish_name()}, description=${session.wish.getDescription()}, price=${session.wish.getPrice()}, quantity=${session.wish.getQuantity()}, url=${session.wish.getUrl()})"></div>
 <footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
 </body>
 </html>

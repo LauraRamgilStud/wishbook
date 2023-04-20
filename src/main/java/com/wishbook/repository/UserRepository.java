@@ -129,19 +129,7 @@ public class UserRepository {
             e.printStackTrace();
         }
     }
-    public void deleteUserByID(int id) {
-        final String DELETE_QUERY = "DELETE FROM wishbook.user WHERE id=?";
-        try {
-            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
-            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
-            System.out.println("Could not create user");
-            e.printStackTrace();
-        }
-    }
     public User findUserByID(int userID){
         //SQL QUERY
         final String FIND_QUERY = "SELECT * FROM wishbook.user WHERE id = ?";
@@ -200,5 +188,21 @@ public class UserRepository {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public void deleteUserByID(int id) {
+        final String DELETE_QUERY = "DELETE FROM wishbook.user WHERE id = ?";
+
+
+        try {
+            Connection connection = ConnectionManager.getConnection(DB_URL, UID, PWD);
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println("Could not create user");
+            e.printStackTrace();
+        }
     }
 }

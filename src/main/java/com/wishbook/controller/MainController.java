@@ -191,19 +191,16 @@ public class MainController {
         return "redirect:/wishlist-page/"+wishList.getId();
     }
 
-    @PostMapping("update-wish/{wishlistID}/{wishID}")
+    @PostMapping("/update-wish")
     public String updateWish(HttpSession session,
-                             @PathVariable("wishID") int id,
                              @RequestParam("wish-name") String wishName,
                              @RequestParam("description") String description,
                              @RequestParam("price") String price,
                              @RequestParam("quantity") String quantity,
                              @RequestParam("wish-pic") MultipartFile wishPic,
                              @RequestParam("url") String url){
-        WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
+         Wish wish = (Wish) session.getAttribute("wish");
         try{
-            Wish wish = new Wish();
-            wish.setId(id);
             wish.setWish_name(wishName);
             wish.setDescription(description);
             wish.setPrice(price);
@@ -216,7 +213,7 @@ public class MainController {
         }catch (IOException e){
             e.printStackTrace();
         }
-        return "redirect:/wishlist-page/"+wishList.getId();
+        return "redirect:/wish-page/"+wish.getId();
     }
 
     @GetMapping("/logout")
@@ -238,5 +235,12 @@ public class MainController {
         WishList wishList = (WishList) session.getAttribute("wishlistFromWishlistView");
         wishRepository.deleteWishByID(id);
         return "redirect:/wishlist-page/"+wishList.getId();
+    }
+
+    @GetMapping("/delete-user")
+    public String deleteUser(HttpSession session){
+        User user = (User) session.getAttribute("user");
+        userRepository.deleteUserByID(user.getId());
+        return "redirect:/";
     }
 }
