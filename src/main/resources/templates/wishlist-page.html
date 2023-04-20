@@ -38,6 +38,8 @@
                 </a>
             </div>
         </div>
+        <span id="share-link" th:text="'localhost:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
+        <button onclick="copyToClipboard()">Copy to clipboard</button>
     </section>
     <div class="form-container" id="edit-book-form" th:insert="fragments/update-wishlist-form-fragment :: wishlist (id=${session.wishlistFromWishlistView.getId()}, name=${session.wishlistFromWishlistView.getList_name()}, occasion=${session.wishlistFromWishlistView.getOccasion()})"></div>
     <div class="form-container" id="create-wish-form" th:insert="fragments/create-wish-form-fragment"></div>

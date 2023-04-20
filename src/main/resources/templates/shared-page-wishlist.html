@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Book</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/overview.css" th:href="@{/css/overview.css}"/>
+  <script type="text/javascript" src="../static/javaScript/script.js" th:src="@{/javaScript/script.js}"></script>
+  <div th:insert="fragments/header-fragment.html"></div>
+</head>
+<body>
+<section class="hero">
+  <section class="top-section section-style">
+    <h1>This book is shared by<span th:text="' '+${session.sharedLinkUser.getFname()}+' '+${session.sharedLinkUser.getLname()}"></span></h1>
+  </section>
+
+  <section class="bottom-section section-style">
+    <h2 class="bottom-header">Wishes</h2>
+
+    <div class="items-wrapper">
+      <div th:each="wish : ${session.sharedLinkListOfWishes}">
+        <a th:href="@{'/wishlist/share/'+${wish.getId()}}">
+          <div class="items">
+            <img class="item-img" th:src="'data:image/jpeg;base64,' + ${wish.getPicOut()}" alt="Wish picture" src="">
+            <div class="item-info">
+              <span class="item-name" th:text="${wish.getWish_name()}"></span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  </section>
+<footer class="site-footer" th:insert="fragments/footer-fragment.html :: footer"></footer>
+</body>
+</html>
