@@ -104,7 +104,7 @@ div#noacc {
 }
 
 body{
-    background-image: url("../images/Background.svg");
+    background-image: url("../images/Background2.png");
     background-size: cover;
     color: var(--primary-color);
     overflow: scroll;

@@ -56,7 +56,7 @@
     <div class="form-container" id="create-wish-form" th:insert="fragments/all-fragments :: create-wish"></div>
     <div id="delete-wishlist-id" class="delete-popup-container" th:insert="fragments/all-fragments :: delete-wishlist-popup"></div>
 </section>
-<span id="share-link" th:text="'localhost:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
+<span id="share-link" th:text="'http://20.8.105.112:1200/wishlist/share/'+${session.user.getId()}+'/'+${session.wishlistFromWishlistView.getId()}"></span>
 <footer class="site-footer" th:insert="fragments/all-fragments :: footer"></footer>
 </body>
 </html>
