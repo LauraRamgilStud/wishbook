@@ -59,7 +59,7 @@
 
 <div th:fragment="share-link (wishlist_id, user_id)" class="share-link-popup">
   <h1 class="form-header">Copy Link and Share your Book</h1>
-  <a th:text="'http://20.8.105.112:1200/wishlist/share/'+${user_id}+'/'+${wishlist_id}"></a>
+  <a th:text="'http://wishbook.tech:1200/wishlist/share/'+${user_id}+'/'+${wishlist_id}"></a>
   <button class="button-30" onclick="closeShareLinkPopUp()">Close</button>
 </div>
 

@@ -2,6 +2,8 @@ package com.wishbook.models;
 
 public class User {
     private int id;
+
+    private int followingID;
     private String fname;
     private String lname;
     private String email;
