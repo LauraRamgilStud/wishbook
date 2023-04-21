@@ -27,3 +27,22 @@ CREATE TABLE wishbook.Wish(
                             `url` VARCHAR(500),
                             PRIMARY KEY (`id`),
                             FOREIGN KEY (`wishlist_id`) REFERENCES Wishlist(`id`));
+
+ALTER TABLE `wishbook`.`wishlist`
+DROP FOREIGN KEY `wishlist_ibfk_1`;
+ALTER TABLE `wishbook`.`wishlist`
+ADD CONSTRAINT `wishlist_ibfk_1`
+FOREIGN KEY (`user_id`)
+REFERENCES `wishbook`.`user` (`id`)
+ON DELETE CASCADE;
+
+ALTER TABLE `wishbook`.`wish`
+DROP FOREIGN KEY `wish_ibfk_1`;
+ALTER TABLE `wishbook`.`wish`
+ADD CONSTRAINT `wish_ibfk_1`
+FOREIGN KEY (`wishlist_id`)
+REFERENCES `wishbook`.`wishlist` (`id`)
+ON DELETE CASCADE;
+
+ALTER TABLE `wishbook`.`wish`
+ADD COLUMN `wish_reserved` TINYINT NULL DEFAULT 0 AFTER `url`;

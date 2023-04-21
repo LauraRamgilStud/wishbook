@@ -31,6 +31,7 @@ public class UserRepository {
                 String email = resultSet.getString(4);
                 String pw = resultSet.getString(5);
                 User user = new User(fname, lname, email, pw);
+                user.setId(id);
                 userList.add(user);
                 System.out.println(user);
             }

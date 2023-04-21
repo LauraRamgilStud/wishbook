@@ -7,15 +7,10 @@ import com.wishbook.models.User;
 import com.wishbook.repository.WishListRepository;
 import com.wishbook.repository.WishRepository;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.webresources.war.WarURLConnection;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -122,8 +117,7 @@ public class MainController {
     }
 
     @GetMapping("/profile")
-    public String showProfilePage(HttpSession session, Model model){
-        User user = (User) session.getAttribute("user");
+    public String showProfilePage(){
         return "profile";
     }
 

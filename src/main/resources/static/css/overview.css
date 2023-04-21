@@ -212,7 +212,7 @@
     z-index: 10;
 }
 
-.delete-popup-container {
+.delete-popup-container, .share-link-popup-container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -244,7 +244,7 @@ input {
     margin: 0.5rem 0;
 }
 
-.update-wishlist-form, .create-wishlist-form, .create-wish-form, .update-wish-form .deleteForm{
+.update-wishlist-form, .create-wishlist-form, .create-wish-form, .update-wish-form{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -285,10 +285,10 @@ input {
     width: 200px;
     margin: 60px;
 }
-.aUsure{
+/*.aUsure{
     margin-left: 50px;
     margin-bottom: 10px;
-}
+}*/
 form label {
     color: #322964;
 }
@@ -313,10 +313,18 @@ form label {
     z-index: 999;
 }
 
-.delete-popup{
+.delete-popup, .share-link-popup{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.share-link-popup a, .share-link-popup button {
+    padding: 1rem;
+}
+
+.share-link-popup button {
+    margin-bottom: 1rem;
 }
 
 .form-profile-row1 {

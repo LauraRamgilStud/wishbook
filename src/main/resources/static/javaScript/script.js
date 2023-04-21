@@ -1,7 +1,7 @@
 function toggleForm(isLogin) {
-    var loginForm = document.getElementById("loginForm");
-    var loginButton = document.getElementById("loginButton");
-    var cancelButton = document.getElementById("cancel");
+    let loginForm = document.getElementById("loginForm");
+    let loginButton = document.getElementById("loginButton");
+    let cancelButton = document.getElementById("cancel");
 
     if (isLogin) {
         if (loginForm.style.display === "block") {
@@ -21,7 +21,7 @@ function toggleForm(isLogin) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    var form = document.getElementById("loginForm");
+    let form = document.getElementById("loginForm");
     form.style.display = "none";
 });
 
@@ -104,14 +104,11 @@ function closeDeleteWishPopUp() {
     document.getElementById("delete-wish-id").style.display = "none";
 }
 
-function copyToClipboard() {
-    // Get the value of the href attribute of the link element
-    let link = document.getElementById("share-link").textContent;
-    // Copy the link to the clipboard
-    navigator.clipboard.writeText(link).then(function() {
-        console.log("Link copied to clipboard successfully!");
-    }, function() {
-        console.error("Failed to copy link to clipboard!");
-    });
+function openShareLinkPopUp() {
+    document.getElementById("share-link").style.display = "block";
+}
+
+function closeShareLinkPopUp() {
+    document.getElementById("share-link").style.display = "none";
 }
 
